@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/05/10 08:53:44.000.114,=C:\Users\Acer\Documents\GitHub\Delphi\Unit1.pas</Transaction>
+    <Transaction>2022/07/21 14:42:42.000.906,=C:\Users\Acer\Documents\GitHub\Delphi\Unit1.pas</Transaction>
+    <Transaction>2022/07/21 14:43:19.000.459,C:\Users\Acer\Desktop\Programa\Clientes\U_Clientes.pas=C:\Users\Acer\Documents\GitHub\Delphi\Unit1.pas</Transaction>
+    <Transaction>2022/07/21 14:43:19.000.459,C:\Users\Acer\Desktop\Programa\Clientes\U_Clientes.dfm=C:\Users\Acer\Documents\GitHub\Delphi\Unit1.dfm</Transaction>
+    <Transaction>2022/07/21 14:43:32.000.671,C:\Users\Acer\Desktop\Programa\Clientes\Cadastro_Orçamentos.dproj=C:\Users\Acer\Documents\GitHub\Delphi\Project1.dproj</Transaction>
+    <Transaction>2022/07/21 15:07:56.000.893,=C:\Users\Acer\Desktop\Programa\Clientes\Unit1.pas</Transaction>
+    <Transaction>2022/07/21 15:08:36.000.977,=C:\Users\Acer\Desktop\Programa\Clientes\Unit1.pas</Transaction>
+    <Transaction>2022/07/21 15:08:55.000.776,C:\Users\Acer\Desktop\Programa\Clientes\Unit1.dfm=C:\Users\Acer\Desktop\Programa\Clientes\U_Cadastro.dfm</Transaction>
+    <Transaction>2022/07/21 15:08:55.000.776,C:\Users\Acer\Desktop\Programa\Clientes\Unit1.pas=C:\Users\Acer\Desktop\Programa\Clientes\U_Cadastro.pas</Transaction>
+  </Transactions>
+</BorlandProject>
