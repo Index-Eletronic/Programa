@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/05/10 08:53:44.000.114,=C:\Users\Acer\Documents\GitHub\Delphi\Unit1.pas</Transaction>
+    <Transaction>2022/07/13 12:48:07.000.582,=C:\Users\Acer\Documents\GitHub\Delphi\Unit1.pas</Transaction>
+    <Transaction>2022/07/13 12:49:14.000.908,C:\Users\Acer\Desktop\Programa\Software\U_prog_AcessBD.dfm=C:\Users\Acer\Documents\GitHub\Delphi\Unit1.dfm</Transaction>
+    <Transaction>2022/07/13 12:49:14.000.908,C:\Users\Acer\Desktop\Programa\Software\U_prog_AcessBD.pas=C:\Users\Acer\Documents\GitHub\Delphi\Unit1.pas</Transaction>
+    <Transaction>2022/07/13 12:49:51.000.982,C:\Users\Acer\Desktop\Programa\Software\Programa_AcessBD.dproj=C:\Users\Acer\Documents\GitHub\Delphi\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

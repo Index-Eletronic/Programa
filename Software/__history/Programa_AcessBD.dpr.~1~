@@ -1,0 +1,14 @@
+program Programa_AcessBD;
+
+uses
+  Vcl.Forms,
+  U_prog_AcessBD in 'U_prog_AcessBD.pas' {Form1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

@@ -1,0 +1,43 @@
+unit U_prog_AcessBD;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSAcc,
+  FireDAC.Phys.MSAccDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  Vcl.StdCtrls, FireDAC.Comp.DataSet, Data.Bind.Components, Data.Bind.DBScope,
+  System.Rtti, System.Bindings.Outputs, Vcl.Bind.Editors, Data.Bind.EngExt,
+  Vcl.Bind.DBEngExt;
+
+type
+  Tfrm_inicial = class(TForm)
+    FDConnection1: TFDConnection;
+    BindSourceusuarios: TBindSourceDB;
+    FDTableusuarios: TFDTable;
+    txt_nome: TEdit;
+    txt_sobrenome: TEdit;
+    txt_permissao: TEdit;
+    txt_idade: TEdit;
+    BindingsList1: TBindingsList;
+    LinkControlToField1: TLinkControlToField;
+    LinkControlToField2: TLinkControlToField;
+    LinkControlToField3: TLinkControlToField;
+    LinkControlToField4: TLinkControlToField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_inicial: Tfrm_inicial;
+
+implementation
+
+{$R *.dfm}
+
+end.
