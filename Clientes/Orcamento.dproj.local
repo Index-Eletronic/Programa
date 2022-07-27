@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/05/10 08:53:44.000.114,=C:\Users\Acer\Documents\GitHub\Delphi\Unit1.pas</Transaction>
+    <Transaction>2022/07/21 14:42:42.000.906,=C:\Users\Acer\Documents\GitHub\Delphi\Unit1.pas</Transaction>
+    <Transaction>2022/07/21 14:43:19.000.459,C:\Users\Acer\Documents\GitHub\Delphi\Unit1.pas=C:\Users\Acer\Desktop\Programa\Clientes\U_Clientes.pas</Transaction>
+    <Transaction>2022/07/21 14:43:19.000.459,C:\Users\Acer\Documents\GitHub\Delphi\Unit1.dfm=C:\Users\Acer\Desktop\Programa\Clientes\U_Clientes.dfm</Transaction>
+    <Transaction>2022/07/21 14:43:32.000.671,C:\Users\Acer\Documents\GitHub\Delphi\Project1.dproj=C:\Users\Acer\Desktop\Programa\Clientes\Cadastro_Orçamentos.dproj</Transaction>
+    <Transaction>2022/07/21 15:07:56.000.893,=C:\Users\Acer\Desktop\Programa\Clientes\Unit1.pas</Transaction>
+    <Transaction>2022/07/21 15:08:36.000.977,=C:\Users\Acer\Desktop\Programa\Clientes\Unit1.pas</Transaction>
+    <Transaction>2022/07/21 15:08:55.000.776,C:\Users\Acer\Desktop\Programa\Clientes\U_Cadastro.pas=C:\Users\Acer\Desktop\Programa\Clientes\Unit1.pas</Transaction>
+    <Transaction>2022/07/21 15:08:55.000.776,C:\Users\Acer\Desktop\Programa\Clientes\U_Cadastro.dfm=C:\Users\Acer\Desktop\Programa\Clientes\Unit1.dfm</Transaction>
+    <Transaction>2022/07/26 13:14:29.000.551,=C:\Users\Acer\Desktop\Programa\Clientes\Unit1.pas</Transaction>
+    <Transaction>2022/07/26 13:14:51.000.521,C:\Users\Acer\Desktop\Programa\Clientes\Unit1.pas=C:\Users\Acer\Desktop\Programa\Clientes\U_Orcamento.pas</Transaction>
+    <Transaction>2022/07/26 13:16:01.000.690,C:\Users\Acer\Desktop\Programa\Clientes\Cadastro_Orçamentos.dproj=C:\Users\Acer\Desktop\Programa\Clientes\Orcamento.dproj</Transaction>
+    <Transaction>2022/07/26 13:16:20.000.480,C:\Users\Acer\Desktop\Programa\Clientes\U_Orcamento.pas=</Transaction>
+    <Transaction>2022/07/26 13:17:42.000.462,=C:\Users\Acer\Desktop\Programa\Clientes\Unit1.pas</Transaction>
+    <Transaction>2022/07/26 13:18:19.000.012,C:\Users\Acer\Desktop\Programa\Clientes\Unit1.pas=C:\Users\Acer\Desktop\Programa\Clientes\U_Orcamento.pas</Transaction>
+    <Transaction>2022/07/26 13:18:19.000.012,C:\Users\Acer\Desktop\Programa\Clientes\Unit1.dfm=C:\Users\Acer\Desktop\Programa\Clientes\U_Orcamento.dfm</Transaction>
+    <Transaction>2022/07/26 13:18:30.000.353,C:\Users\Acer\Desktop\Programa\Clientes\Orcamento.dproj=C:\Users\Acer\Desktop\Programa\Clientes\Orcamento.dproj</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="U_Cadastro.pas"/>
+    <File Path="U_Cadastro.dfm"/>
+    <File Path="U_Clientes.pas"/>
+    <File Path="U_Clientes.dfm"/>
+    <File Path="U_Orcamento.pas"/>
+    <File Path="U_Orcamento.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>
