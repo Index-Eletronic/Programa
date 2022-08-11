@@ -45,6 +45,9 @@ type
     procedure btn_editarClick(Sender: TObject);
     procedure btn_excluirClick(Sender: TObject);
     procedure DS_CAD_MatDataChange(Sender: TObject; Field: TField);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure DBGrid1ColEnter(Sender: TObject);
+    procedure DBGrid1ColExit(Sender: TObject);
   private
     procedure Limpar;
     procedure Desbloqueia;
@@ -75,7 +78,6 @@ begin
 Desbloqueia;
 frm_Plano.FDTabletuonmarcenaria_precos.Edit;
 ShowMessage('Dados atualizados com sucesso.');
-Bloqueia;
 end;
 
 procedure Tfrm_CadMateriais.btn_excluirClick(Sender: TObject);
@@ -90,12 +92,13 @@ var Incrementa: Boolean;
 begin
 Desbloqueia;
 frm_Plano.FDTabletuonmarcenaria_precos.Insert;
+txt_cod_mat.text := '100000';
+txt_uni.text := 'UNI';
 
  end;
 
 procedure Tfrm_CadMateriais.btn_salvarClick(Sender: TObject);
 begin
-
 frm_Plano.FDTabletuonmarcenaria_precos.Post;
 Limpar;
 txt_cod_mat.SetFocus;
@@ -105,12 +108,29 @@ begin
 frm_Plano.FDTabletuonmarcenaria_precos.Insert;
 Desbloqueia;
 Limpar;
+txt_cod_mat.text := '100000';
+txt_uni.text := 'UNI';
 end
 else
 begin
 Bloqueia;
 end;
 
+end;
+
+procedure Tfrm_CadMateriais.DBGrid1CellClick(Column: TColumn);
+begin
+Desbloqueia;
+end;
+
+procedure Tfrm_CadMateriais.DBGrid1ColEnter(Sender: TObject);
+begin
+Desbloqueia;
+end;
+
+procedure Tfrm_CadMateriais.DBGrid1ColExit(Sender: TObject);
+begin
+Bloqueia;
 end;
 
 procedure Tfrm_CadMateriais.Desbloqueia;
@@ -124,7 +144,7 @@ end;
 procedure Tfrm_CadMateriais.DS_CAD_MatDataChange(Sender: TObject;
   Field: TField);
 begin
-DBGrid1.DataSource.DataSet.Last();
+//DBGrid1.DataSource.DataSet.Last();
 end;
 
 procedure Tfrm_CadMateriais.FormClose(Sender: TObject;

@@ -41,8 +41,6 @@ object frm_CadMateriais: Tfrm_CadMateriais
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = -233
-    ExplicitWidth = 1045
     object Label1: TLabel
       Left = 312
       Top = 16
@@ -270,6 +268,9 @@ object frm_CadMateriais: Tfrm_CadMateriais
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = DBGrid1CellClick
+    OnColEnter = DBGrid1ColEnter
+    OnColExit = DBGrid1ColExit
     Columns = <
       item
         Alignment = taCenter
