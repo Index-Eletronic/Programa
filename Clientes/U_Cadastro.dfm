@@ -172,7 +172,7 @@ object Clientes: TClientes
       MaxLength = 10
       ParentFont = False
       TabOrder = 0
-      Text = '06/05/2022'
+      Text = '13/01/2022'
     end
     object txt_n: TEdit
       Left = 268
@@ -189,7 +189,7 @@ object Clientes: TClientes
       NumbersOnly = True
       ParentFont = False
       TabOrder = 1
-      Text = '82'
+      Text = '265'
     end
     object txt_rev: TEdit
       Left = 456
@@ -207,7 +207,7 @@ object Clientes: TClientes
       NumbersOnly = True
       ParentFont = False
       TabOrder = 2
-      Text = '0'
+      Text = '3'
     end
     object txt_tot: TEdit
       Left = 717
@@ -225,7 +225,7 @@ object Clientes: TClientes
       NumbersOnly = True
       ParentFont = False
       TabOrder = 3
-      Text = '38440'
+      Text = '624340'
     end
     object txt_nome: TEdit
       Left = 73
@@ -240,7 +240,7 @@ object Clientes: TClientes
       Font.Style = []
       ParentFont = False
       TabOrder = 4
-      Text = 'LAERCIO CASARIN'
+      Text = 'SARA E JOAO'
     end
     object txt_end: TEdit
       Left = 118
@@ -255,7 +255,7 @@ object Clientes: TClientes
       Font.Style = []
       ParentFont = False
       TabOrder = 5
-      Text = 'COD. CHAMONIX'
+      Text = 'CAMPO BELO'
     end
   end
   object DBGrid1: TDBGrid

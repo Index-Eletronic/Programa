@@ -1,0 +1,60 @@
+unit U_Proj;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids, cefvcl,
+  Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  Tfrm_Proj = class(TForm)
+    Label8: TLabel;
+    Panel2: TPanel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    txt_data: TEdit;
+    txt_n: TEdit;
+    txt_qr: TEdit;
+    txt_qtde: TEdit;
+    txt_nome: TEdit;
+    txt_descr: TEdit;
+    CB_executar: TCheckBox;
+    btn_Salvar: TButton;
+    btn_Cancelar: TButton;
+    Label11: TLabel;
+    Chromium1: TChromium;
+    btn_QR: TButton;
+    Label9: TLabel;
+    Label10: TLabel;
+    DB_Exrcutado: TDBGrid;
+    Panel1: TPanel;
+    Label1: TLabel;
+    DB_A_Executar: TDBGrid;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_Proj: Tfrm_Proj;
+
+implementation
+
+{$R *.dfm}
+
+uses U_Clientes;
+
+procedure Tfrm_Proj.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Principal := TPrincipal.Create(self);
+Principal.ShowModal;
+end;
+
+end.

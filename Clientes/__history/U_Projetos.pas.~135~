@@ -1,0 +1,132 @@
+unit U_Projetos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Data.DB,
+  Vcl.Grids, Vcl.DBGrids, cefvcl, Vcl.Imaging.pngimage, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.Phys.MSAcc, FireDAC.Phys.MSAccDef, FireDAC.VCLUI.Wait,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Data.Bind.Components,
+  Data.Bind.DBScope, System.Rtti, System.Bindings.Outputs, Vcl.Bind.Editors,
+  Data.Bind.EngExt, Vcl.Bind.DBEngExt;
+
+type
+  Tfrm_Proj = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    DB_Exrcutado: TDBGrid;
+    FDCon_Proj_SIM: TFDConnection;
+    BindSourceProj_SIM: TBindSourceDB;
+    FDTableProj_SIM: TFDTable;
+    FDStoredProc_Proj_Sim: TFDStoredProc;
+    DS_Proj_sim: TDataSource;
+    FDTableProj_SIMid_produto: TFDAutoIncField;
+    FDTableProj_SIMcliente: TWideStringField;
+    FDTableProj_SIMdescricao: TWideStringField;
+    FDTableProj_SIMproj: TWideStringField;
+    DataSource_pcp: TDataSource;
+    DB_A_Executar: TDBGrid;
+    FDCon_PCP_Nao: TFDConnection;
+    BindSource_Proj_Não_: TBindSourceDB;
+    FDTable_Proj_Não_: TFDTable;
+    btn_salvar_Aexec: TButton;
+    BindingsList1: TBindingsList;
+    txt_id: TEdit;
+    txt_cliente: TEdit;
+    txt_desc: TEdit;
+    txt_proj: TEdit;
+    LinkControlToField2: TLinkControlToField;
+    LinkControlToField3: TLinkControlToField;
+    LinkControlToField4: TLinkControlToField;
+    LinkControlToField5: TLinkControlToField;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btn_salvar_AexecClick(Sender: TObject);
+    procedure FDTable_Proj_Não_BeforePost(DataSet: TDataSet);
+    procedure DB_A_ExecutarCellClick(Column: TColumn);
+
+  private
+        procedure Desbloqueia;
+        procedure Bloqueia;
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_Proj: Tfrm_Proj;
+
+implementation
+
+{$R *.dfm}
+
+uses U_Clientes;
+
+procedure Tfrm_Proj.Bloqueia;
+begin
+txt_id.Enabled := false;
+txt_cliente.Enabled := false;
+txt_desc.Enabled := false;
+txt_proj.Enabled := false;
+end;
+
+procedure Tfrm_Proj.btn_salvar_AexecClick(Sender: TObject);
+begin
+Desbloqueia;
+FDTable_Proj_Não_.Post;
+Bloqueia;
+
+end;
+
+procedure Tfrm_Proj.DB_A_ExecutarCellClick(Column: TColumn);
+begin
+Desbloqueia;
+end;
+
+procedure Tfrm_Proj.Desbloqueia;
+begin
+txt_id.Enabled := True;
+txt_cliente.Enabled := True;
+txt_desc.Enabled := True;
+txt_proj.Enabled := True;
+end;
+
+procedure Tfrm_Proj.FDTable_Proj_Não_BeforePost(DataSet: TDataSet);
+begin
+//FDTable_Proj_Não_.FieldByName('id_produto').value := txt_id.Text;
+FDTable_Proj_Não_.FieldByName('cliente').value := txt_cliente.Text;
+FDTable_Proj_Não_.FieldByName('descricao').value := txt_desc.Text;
+FDTable_Proj_Não_.FieldByName('proj').value := txt_proj.Text;
+end;
+
+procedure Tfrm_Proj.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+frm_Proj.hide;
+Principal := TPrincipal.Create(self);
+Principal.ShowModal;
+end;
+
+
+{
+    if DB_Exrcutado.SelectedIndex = 0 then
+  begin
+     DB_Exrcutado.Columns[0].ReadOnly := false;
+     DB_Exrcutado.Columns[1].ReadOnly := false;
+     DB_Exrcutado.Columns[2].ReadOnly := false;
+     DB_Exrcutado.Columns[3].ReadOnly := false;
+     DB_Exrcutado.Fields[3].Text := 'Não';
+     ShowMessage('Clique na linha debaixo para salvar.');
+     ShowMessage('Projeto Executado com sucesso');
+     FDTableProj_SIM.Active := False;
+  end;
+  FDTableProj_SIM.Active := True;
+  }
+
+end.

@@ -10,7 +10,7 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSAcc,
   FireDAC.Phys.MSAccDef, FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS,
   FireDAC.DApt.Intf, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Data.Bind.Components, Data.Bind.DBScope;
+  FireDAC.Comp.Client, Data.Bind.Components, Data.Bind.DBScope, Vcl.Buttons;
 
 type
   TPrincipal = class(TForm)
@@ -19,8 +19,6 @@ type
     Arquivo2: TMenuItem;
     PlanodeCortes1: TMenuItem;
     PlanodeCortes2: TMenuItem;
-    Estoque1: TMenuItem;
-    AnalisedeInsumos1: TMenuItem;
     Sair1: TMenuItem;
     Sair2: TMenuItem;
     Sair3: TMenuItem;
@@ -31,17 +29,23 @@ type
     FDTableclientes: TFDTable;
     lbl_conexao: TLabel;
     Panel1: TPanel;
-    Label2: TLabel;
     ProgramaoSemanal1: TMenuItem;
-    Label3: TLabel;
-    Panel2: TPanel;
-    Label4: TLabel;
-    Panel3: TPanel;
+    Label1: TLabel;
+    Panel4: TPanel;
+    PENDECIAS1: TMenuItem;
+    Projetos: TMenuItem;
+    Produo1: TMenuItem;
+    Produo2: TMenuItem;
+    btn_programacao: TSpeedButton;
     procedure Arquivo2Click(Sender: TObject);
     procedure Sair4Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
     procedure PlanodeCortes2Click(Sender: TObject);
+    procedure ProjetosClick(Sender: TObject);
+    procedure PlanodeCortes1Click(Sender: TObject);
+    procedure btn_programacaoClick(Sender: TObject);
+    procedure ProgramaoSemanal1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,13 +58,19 @@ implementation
 
 {$R *.dfm}
 
-uses U_Cadastro, U_Orcamento;
+uses U_Cadastro, U_Orcamento,U_Projetos, U_Prog_Semanal, U_planocorte;
 
 procedure TPrincipal.Arquivo2Click(Sender: TObject);
 begin
 Principal.Hide;
  Clientes := TClientes.create(self);
  Clientes.ShowModal;
+end;
+
+procedure TPrincipal.btn_programacaoClick(Sender: TObject);
+begin
+frm_programacao := Tfrm_programacao.Create(self);
+frm_programacao.ShowModal;
 end;
 
 procedure TPrincipal.FormActivate(Sender: TObject);
@@ -74,8 +84,17 @@ end;
 
 procedure TPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-Principal.Close;
-Clientes.Close;
+FDConnection1.Close;
+FDTableclientes.Close;
+Clientes.Hide;
+//Principal.Hide;
+end;
+
+procedure TPrincipal.PlanodeCortes1Click(Sender: TObject);
+begin
+Principal.Hide;
+frm_Plano := Tfrm_Plano.Create(self);
+frm_Plano.ShowModal;
 end;
 
 procedure TPrincipal.PlanodeCortes2Click(Sender: TObject);
@@ -83,6 +102,22 @@ begin
 Principal.Hide;
 Cad_Orcamento := TCad_Orcamento.create(self);
 Cad_Orcamento.ShowModal;
+end;
+
+
+
+procedure TPrincipal.ProgramaoSemanal1Click(Sender: TObject);
+begin
+frm_programacao := Tfrm_programacao.Create(self);
+frm_programacao.ShowModal;
+end;
+
+procedure TPrincipal.ProjetosClick(Sender: TObject);
+begin
+Principal.Hide;
+frm_Proj := Tfrm_Proj.Create(self);
+frm_Proj.ShowModal;
+
 end;
 
 procedure TPrincipal.Sair4Click(Sender: TObject);

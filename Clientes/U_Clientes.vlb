@@ -1,10 +1,4 @@
-﻿[AnalisedeInsumos1]
-Coordinates=133,1,111,33
-
-[Estoque1]
-Coordinates=46,70,60,33
-
-[Image1]
+﻿[Image1]
 Coordinates=10,10,49,51
 
 [Sair2]
@@ -38,15 +32,61 @@ Coordinates=263,141,92,33
 Coordinates=134,1,90,33
 
 [BindSourceclientes]
-Coordinates=320,40,110,231
+Coordinates=181,90,110,231
 
 [FDTableclientes]
-Coordinates=78,80,93,33
+Coordinates=181,90,93,33
 Visible=False
 
 [Clientes.FDStoredProc1]
-Coordinates=183,176,132,51
+Coordinates=325,186,132,51
 
 [Clientes.DataSource1]
 Coordinates=54,176,120,33
+
+[lbl_conexao]
+Coordinates=65,78,73,51
+
+[Panel1]
+Coordinates=214,215,47,51
+
+[ProgramaoSemanal1]
+Coordinates=483,1,116,33
+
+[Cad_Orcamento.FDTablepcp]
+Visible=False
+Coordinates=708,78,155,33
+
+[Cad_Orcamento.FDStoredProc1]
+Coordinates=720,1,171,51
+
+[Label1]
+Coordinates=424,311,46,51
+
+[Panel4]
+Coordinates=365,311,47,51
+
+[Cad_Orcamento.DataSource1]
+Coordinates=483,56,159,33
+
+[Cad_Orcamento.BindSourcepcp]
+Coordinates=483,265,172,177
+
+[]
+Coordinates=46,70,60,33
+
+[frm_Proj.FDTableProj_SIM]
+Visible=False
+
+[frm_Proj.FDTable_Proj_Não_]
+Visible=False
+
+[frm_Proj.FDTablepcp]
+Visible=False
+
+[frm_Plano.FDTabletuonmarcenaria_precos]
+Visible=False
+
+[frm_Plano.FDT_planocorte]
+Visible=False
 

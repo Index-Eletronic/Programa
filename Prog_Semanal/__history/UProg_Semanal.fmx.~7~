@@ -1,0 +1,175 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  BorderStyle = Single
+  Caption = 'Form1'
+  ClientHeight = 438
+  ClientWidth = 347
+  Position = ScreenCenter
+  Quality = HighQuality
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Panel1: TPanel
+    Align = Top
+    Size.Width = 347.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object lbl_titulo: TLabel
+      StyledSettings = [Family, Size, FontColor]
+      Position.X = 88.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Text = 'PROGRAMA'#199#195'O SEMANAL'
+      TabOrder = 0
+    end
+  end
+  object DateEdit1: TDateEdit
+    Date = 44771.000000000000000000
+    Position.X = 72.000000000000000000
+    Position.Y = 40.000000000000000000
+    TabOrder = 1
+  end
+  object lbl_date: TLabel
+    Position.X = 24.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 57.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'DATA:'
+    TabOrder = 2
+  end
+  object ListView1: TListView
+    ItemAppearanceClassName = 'TListItemAppearance'
+    ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    Position.X = 8.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 337.000000000000000000
+    Size.Height = 185.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+  end
+  object NavigatorBindSourcetuonmarcenaria_programacao: TBindNavigator
+    Position.X = 8.000000000000000000
+    Position.Y = 272.000000000000000000
+    Size.Width = 241.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    DataSource = BindSourcetuonmarcenaria_programacao
+    xRadius = 4.000000000000000000
+    yRadius = 4.000000000000000000
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Server=xmysql.tuonmarcenaria.com.br'
+      'User_Name=tuonmarcenaria'
+      'Password=Lica126x'
+      'Database=tuonmarcenaria'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 200
+    Top = 384
+  end
+  object Driver: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\Acer\Desktop\Programa\Prog_Semanal\Win32\Debug\lib\libm' +
+      'ysql.dll'
+    Left = 400
+    Top = 8
+  end
+  object DataSource1: TDataSource
+    DataSet = FDTabletuonmarcenaria_programacao
+    Left = 104
+    Top = 376
+  end
+  object BindSourcetuonmarcenaria_programacao: TBindSourceDB
+    DataSet = FDTabletuonmarcenaria_programacao
+    ScopeMappings = <>
+    Left = 384
+    Top = 304
+  end
+  object FDTabletuonmarcenaria_programacao: TFDTable
+    Active = True
+    IndexFieldNames = 'id'
+    Connection = FDConnection1
+    TableName = 'tuonmarcenaria.programacao'
+    Left = 128
+    Top = 304
+    object FDTabletuonmarcenaria_programacaoid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object FDTabletuonmarcenaria_programacaodata: TMemoField
+      FieldName = 'data'
+      Origin = 'data'
+      Required = True
+      BlobType = ftMemo
+    end
+    object FDTabletuonmarcenaria_programacaoequipe: TMemoField
+      FieldName = 'equipe'
+      Origin = 'equipe'
+      Required = True
+      BlobType = ftMemo
+    end
+    object FDTabletuonmarcenaria_programacaotransporte: TMemoField
+      FieldName = 'transporte'
+      Origin = 'transporte'
+      Required = True
+      BlobType = ftMemo
+    end
+    object FDTabletuonmarcenaria_programacaoatividade: TMemoField
+      FieldName = 'atividade'
+      Origin = 'atividade'
+      Required = True
+      BlobType = ftMemo
+    end
+    object FDTabletuonmarcenaria_programacaocliente: TMemoField
+      FieldName = 'cliente'
+      Origin = 'cliente'
+      Required = True
+      BlobType = ftMemo
+    end
+    object FDTabletuonmarcenaria_programacaostatus: TBooleanField
+      FieldName = 'status'
+      Origin = 'status'
+      Required = True
+    end
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 373
+    object LinkFillControlToField: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourcetuonmarcenaria_programacao
+      FieldName = 'status'
+      Control = ListView1
+      Track = False
+      FillDataSource = BindSourcetuonmarcenaria_programacao
+      FillDisplayFieldName = 'atividade'
+      AutoFill = True
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillHeaderFieldName = 'equipe'
+      FillBreakGroups = <>
+    end
+    object LinkControlToField1: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourcetuonmarcenaria_programacao
+      FieldName = 'data'
+      Control = DateEdit1
+      Track = False
+    end
+  end
+end

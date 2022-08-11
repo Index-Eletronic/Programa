@@ -1,0 +1,75 @@
+unit U_Proj;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids, cefvcl,
+  Vcl.StdCtrls, Vcl.ExtCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
+  FireDAC.Comp.Client, FireDAC.Phys.MSAcc, FireDAC.Phys.MSAccDef,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet, Data.Bind.Components, Data.Bind.DBScope;
+
+type
+  Tfrm_Proj = class(TForm)
+    Label8: TLabel;
+    Panel2: TPanel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    txt_data: TEdit;
+    txt_n: TEdit;
+    txt_qr: TEdit;
+    txt_qtde: TEdit;
+    txt_nome: TEdit;
+    txt_descr: TEdit;
+    CB_executar: TCheckBox;
+    btn_Salvar: TButton;
+    btn_Cancelar: TButton;
+    Label11: TLabel;
+    Chromium1: TChromium;
+    btn_QR: TButton;
+    Label9: TLabel;
+    Label10: TLabel;
+    DB_Exrcutado: TDBGrid;
+    Panel1: TPanel;
+    Label1: TLabel;
+    DB_A_Executar: TDBGrid;
+    FDCon_Prj_Exec: TFDConnection;
+    BindSourceProj_SIM: TBindSourceDB;
+    FDTableProj_SIM: TFDTable;
+    FDStoredProc_Exec: TFDStoredProc;
+    DataSource_Exec: TDataSource;
+    FDTableProj_SIMid_produto: TFDAutoIncField;
+    FDTableProj_SIMcliente: TWideStringField;
+    FDTableProj_SIMdescricao: TWideStringField;
+    FDTableProj_SIMproj: TWideStringField;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_Proj: Tfrm_Proj;
+
+implementation
+
+{$R *.dfm}
+
+uses U_Clientes;
+
+procedure Tfrm_Proj.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+frm_Proj.Hide;
+Principal := TPrincipal.Create(self);
+Principal.ShowModal;
+end;
+
+end.

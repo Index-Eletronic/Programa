@@ -1,0 +1,128 @@
+object TabbedForm: TTabbedForm
+  Left = 0
+  Top = 0
+  Caption = 'TabbedForm'
+  ClientHeight = 651
+  ClientWidth = 384
+  FormFactor.Width = 1440
+  FormFactor.Height = 900
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object HeaderToolBar: TToolBar
+    Anchors = []
+    Size.Width = 384.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object ToolBarLabel: TLabel
+      Align = Contents
+      Size.Width = 384.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'toollabel'
+      TextSettings.HorzAlign = Center
+      Text = 'PROGRAMA SEMANAL'
+    end
+  end
+  object TabControl1: TTabControl
+    Align = Client
+    FullSize = True
+    Size.Width = 384.000000000000000000
+    Size.Height = 603.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 0
+    TabOrder = 1
+    TabPosition = PlatformDefault
+    Sizes = (
+      384s
+      554s
+      384s
+      554s
+      384s
+      554s)
+    object Semana: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 127.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'tabitemtoprated'
+      TabOrder = 0
+      Text = 'Semana'
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object DateEdit1: TDateEdit
+        Date = 44771.000000000000000000
+        Position.X = 56.000000000000000000
+        Position.Y = 23.000000000000000000
+        Size.Width = 121.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+      object lbl_data: TLabel
+        StyledSettings = [Family, FontColor]
+        Position.X = 8.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 49.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        Text = 'DATA:'
+        TabOrder = 1
+      end
+    end
+    object Adiconar: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 127.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'tabitemcontacts'
+      TabOrder = 0
+      Text = 'Adiconar'
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+    end
+    object TabItem3: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 128.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'tabitemrecent'
+      TabOrder = 0
+      Text = 'TabItem3'
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+    end
+  end
+  object GestureManager1: TGestureManager
+    Sensitivity = 80.000000000000000000
+    Left = 344
+    Top = 8
+    GestureData = <
+      item
+        Control = Owner
+        Collection = <
+          item
+            GestureID = sgiLeft
+          end
+          item
+            GestureID = sgiRight
+          end>
+      end>
+  end
+  object FDConnection1: TFDConnection
+    Left = 296
+    Top = 112
+  end
+end

@@ -81,14 +81,15 @@ Coordinates=320,270,77,51
 Coordinates=220,140,60,51
 
 [Principal.FDTableclientes]
+Coordinates=707,11,139,33
 Visible=False
-Coordinates=558,1,139,33
 
 [Principal.BindSourceclientes]
-Coordinates=580,10,156,231
+Coordinates=610,10,156,339
+ExplicitSubNodes=Data(Invalid);endereco(Invalid);id_pedido(Invalid);nome(Invalid);rev(Invalid);Valor(Invalid)
 
 [FDStoredProc1]
-Coordinates=940,80,89,51
+Coordinates=1039,90,89,51
 
 [DataSource1]
 Coordinates=241,309,77,33

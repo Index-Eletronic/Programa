@@ -1,0 +1,63 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  BorderStyle = Single
+  Caption = 'Form1'
+  ClientHeight = 280
+  ClientWidth = 460
+  Position = ScreenCenter
+  Quality = HighQuality
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Panel1: TPanel
+    Align = Top
+    Size.Width = 460.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object lbl_titulo: TLabel
+      StyledSettings = [Family, Size, FontColor]
+      Position.X = 144.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Text = 'PROGRAMA'#199#195'O SEMANAL'
+      TabOrder = 1
+    end
+  end
+  object DateEdit1: TDateEdit
+    Date = 44771.000000000000000000
+    Position.X = 72.000000000000000000
+    Position.Y = 40.000000000000000000
+    TabOrder = 2
+  end
+  object lbl_date: TLabel
+    Position.X = 24.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 57.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'DATA:'
+    TabOrder = 3
+  end
+  object ListView1: TListView
+    ItemAppearanceClassName = 'TListItemAppearance'
+    ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    Position.X = 8.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 449.000000000000000000
+    Size.Height = 185.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+  end
+  object FDConnection1: TFDConnection
+    Left = 272
+    Top = 40
+  end
+end

@@ -1,0 +1,623 @@
+object Cad_Orcamento: TCad_Orcamento
+  Left = 0
+  Top = 0
+  BorderStyle = bsSingle
+  Caption = 'frm_Orcamento'
+  ClientHeight = 838
+  ClientWidth = 945
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label8: TLabel
+    Left = 8
+    Top = 83
+    Width = 159
+    Height = 23
+    Caption = 'DADOS DO ITEM'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label11: TLabel
+    Left = 126
+    Top = 417
+    Width = 145
+    Height = 23
+    Caption = 'CADASTRADOS'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 945
+    Height = 65
+    Align = alTop
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 300
+      Top = 16
+      Width = 336
+      Height = 25
+      Caption = 'CADASTRO DE OR'#199'AMENTOS'
+      Color = clBlue
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clHotLight
+      Font.Height = -21
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 112
+    Width = 945
+    Height = 185
+    Color = clMedGray
+    ParentBackground = False
+    TabOrder = 1
+    object Label2: TLabel
+      Left = 36
+      Top = 28
+      Width = 55
+      Height = 18
+      Caption = 'DATA:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 272
+      Top = 28
+      Width = 22
+      Height = 18
+      Caption = 'N'#186
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 438
+      Top = 28
+      Width = 27
+      Height = 18
+      Caption = 'QR'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 693
+      Top = 140
+      Width = 56
+      Height = 18
+      Caption = 'QTDE:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 8
+      Top = 84
+      Width = 83
+      Height = 18
+      Caption = 'CLIENTE:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 8
+      Top = 140
+      Width = 53
+      Height = 18
+      Caption = 'DESC:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 807
+      Top = 140
+      Width = 30
+      Height = 18
+      Caption = 'R$:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object txt_data: TEdit
+      Left = 97
+      Top = 25
+      Width = 141
+      Height = 26
+      Alignment = taCenter
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      MaxLength = 10
+      ParentFont = False
+      TabOrder = 0
+      Text = '13/01/2022'
+    end
+    object txt_n: TEdit
+      Left = 300
+      Top = 25
+      Width = 102
+      Height = 26
+      Alignment = taCenter
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      NumbersOnly = True
+      ParentFont = False
+      TabOrder = 1
+      Text = '265'
+    end
+    object txt_qr: TEdit
+      Left = 471
+      Top = 25
+      Width = 122
+      Height = 26
+      Alignment = taCenter
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      MaxLength = 2
+      NumbersOnly = True
+      ParentFont = False
+      TabOrder = 2
+      Text = '39'
+    end
+    object txt_qtde: TEdit
+      Left = 755
+      Top = 137
+      Width = 44
+      Height = 26
+      Alignment = taCenter
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      MaxLength = 12
+      NumbersOnly = True
+      ParentFont = False
+      TabOrder = 5
+      Text = '47'
+    end
+    object txt_nome: TEdit
+      Left = 97
+      Top = 84
+      Width = 305
+      Height = 26
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+      Text = 'SARA E JOAO'
+    end
+    object txt_descr: TEdit
+      Left = 67
+      Top = 137
+      Width = 620
+      Height = 26
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+      Text = 'Hall (M01) - Painel 1 / Painel 2'
+    end
+    object txt_vlr: TEdit
+      Left = 846
+      Top = 137
+      Width = 91
+      Height = 26
+      Alignment = taCenter
+      Enabled = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      MaxLength = 12
+      NumbersOnly = True
+      ParentFont = False
+      TabOrder = 6
+    end
+    object Panel3: TPanel
+      Left = 693
+      Top = 13
+      Width = 244
+      Height = 118
+      Color = clHighlight
+      ParentBackground = False
+      TabOrder = 7
+      object Label10: TLabel
+        Left = 23
+        Top = 77
+        Width = 55
+        Height = 18
+        Caption = 'DATA:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object cb_entregue: TCheckBox
+        Left = 79
+        Top = 37
+        Width = 130
+        Height = 20
+        Caption = 'ENTREGUE'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+      end
+      object txt_dtEntrega: TEdit
+        Left = 84
+        Top = 71
+        Width = 141
+        Height = 26
+        Alignment = taCenter
+        Enabled = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Verdana'
+        Font.Style = []
+        MaxLength = 10
+        ParentFont = False
+        TabOrder = 1
+        Text = '08/04/2022'
+      end
+    end
+  end
+  object btn_novo: TButton
+    Left = 168
+    Top = 319
+    Width = 121
+    Height = 65
+    Caption = 'NOVO'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    OnClick = btn_novoClick
+  end
+  object btn_salvar: TButton
+    Left = 295
+    Top = 319
+    Width = 121
+    Height = 65
+    Caption = 'SALVAR'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+  end
+  object btn_editar: TButton
+    Left = 422
+    Top = 319
+    Width = 121
+    Height = 65
+    Caption = 'EDITAR'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
+    OnClick = btn_editarClick
+  end
+  object btn_excluir: TButton
+    Left = 549
+    Top = 319
+    Width = 121
+    Height = 65
+    Caption = 'EXCLUIR'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 5
+    OnClick = btn_excluirClick
+  end
+  object btn_cancelar: TButton
+    Left = 676
+    Top = 319
+    Width = 121
+    Height = 65
+    Caption = 'CANCELAR'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 6
+    OnClick = btn_cancelarClick
+  end
+  object DBGrid1: TDBGrid
+    Left = 104
+    Top = 446
+    Width = 732
+    Height = 355
+    DataSource = DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 7
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object btn_filtro: TButton
+    Left = 442
+    Top = 415
+    Width = 75
+    Height = 25
+    Cursor = crHandPoint
+    Caption = 'FILTRAR'
+    DragCursor = crHandPoint
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 8
+  end
+  object txt_filtro: TEdit
+    Left = 523
+    Top = 414
+    Width = 313
+    Height = 26
+    Enabled = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 9
+  end
+  object FD_Con_PCP: TFDConnection
+    Params.Strings = (
+      
+        'Database=C:\Users\Acer\Desktop\Programa\Clientes\Win32\Debug\Ass' +
+        'ets\BD_Sistema.mdb'
+      'DriverID=MSAcc')
+    Connected = True
+    Left = 704
+    Top = 16
+  end
+  object BindSourcepcp: TBindSourceDB
+    DataSet = FDTablepcp
+    ScopeMappings = <>
+    Left = 864
+    Top = 16
+  end
+  object FDTablepcp: TFDTable
+    Active = True
+    BeforePost = FDTablepcpBeforePost
+    BeforeCancel = FDTablepcpBeforeCancel
+    BeforeDelete = FDTablepcpBeforeDelete
+    Filtered = True
+    IndexFieldNames = 'id_produto'
+    Connection = FD_Con_PCP
+    TableName = 'pcp'
+    Left = 784
+    Top = 16
+    object FDTablepcpid_produto: TFDAutoIncField
+      Alignment = taCenter
+      DisplayLabel = 'QR'
+      DisplayWidth = 10
+      FieldName = 'id_produto'
+      Origin = 'id_produto'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDTablepcpcliente: TWideStringField
+      DisplayLabel = 'CLIENTE'
+      DisplayWidth = 20
+      FieldName = 'cliente'
+      Origin = 'cliente'
+      Size = 255
+    end
+    object FDTablepcpdescricao: TWideStringField
+      DisplayLabel = 'DESCRI'#199#195'O'
+      DisplayWidth = 50
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 255
+    end
+    object FDTablepcpqtde: TWideStringField
+      Alignment = taCenter
+      DisplayLabel = 'QTDE'
+      DisplayWidth = 5
+      FieldName = 'qtde'
+      Origin = 'qtde'
+      Size = 255
+    end
+    object FDTablepcpdt_entrega_final: TWideStringField
+      DisplayLabel = 'ENTREGA'
+      DisplayWidth = 11
+      FieldName = 'dt_entrega_final'
+      Origin = 'dt_entrega_final'
+      Size = 255
+    end
+    object FDTablepcpvalor: TWideStringField
+      DisplayWidth = 10
+      FieldName = 'valor'
+      Origin = 'valor'
+      Visible = False
+      Size = 255
+    end
+    object FDTablepcpData: TWideStringField
+      FieldName = 'Data'
+      Origin = 'Data'
+      Visible = False
+      Size = 255
+    end
+    object FDTablepcpid_pedido: TSmallintField
+      FieldName = 'id_pedido'
+      Origin = 'id_pedido'
+      Visible = False
+    end
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkControlToField1: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourcepcp
+      FieldName = 'id_produto'
+      Control = txt_qr
+      Track = True
+    end
+    object LinkControlToField2: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourcepcp
+      FieldName = 'dt_entrega_final'
+      Control = txt_dtEntrega
+      Track = True
+    end
+    object LinkControlToField4: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourcepcp
+      FieldName = 'valor'
+      Control = txt_vlr
+      Track = True
+    end
+    object LinkControlToField6: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourcepcp
+      FieldName = 'qtde'
+      Control = txt_qtde
+      Track = True
+    end
+    object LinkControlToField3: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourcepcp
+      FieldName = 'descricao'
+      Control = txt_descr
+      Track = True
+    end
+    object LinkControlToField8: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourcepcp
+      FieldName = 'cliente'
+      Control = txt_nome
+      Track = True
+    end
+    object LinkControlToField5: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourcepcp
+      FieldName = 'Data'
+      Control = txt_data
+      Track = True
+    end
+    object LinkControlToField7: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourcepcp
+      FieldName = 'id_pedido'
+      Control = txt_n
+      Track = True
+    end
+  end
+  object FDStoredProc1: TFDStoredProc
+    Connection = FD_Con_PCP
+    Left = 112
+    Top = 8
+  end
+  object DataSource1: TDataSource
+    DataSet = FDTablepcp
+    Left = 200
+    Top = 8
+  end
+end

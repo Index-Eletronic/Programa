@@ -1,144 +1,153 @@
 ﻿[Principal.FDTableclientes]
 Visible=False
-Coordinates=631,1,161,36
+Coordinates=631,1,139,33
 
 [Label5]
-Coordinates=10,190,53,58
-
-[txt_end]
-Coordinates=540,490,57,58
+Coordinates=10,190,46,51
 
 [Label3]
-Coordinates=10,310,53,58
+Coordinates=10,310,46,51
 
 [txt_data]
-Coordinates=930,460,60,58
+Coordinates=760,220,53,51
 
 [Clientes.FDStoredProc1]
-Coordinates=0,10,153,58
+Coordinates=0,10,132,51
 
 [Panel1]
-Coordinates=280,610,55,58
+Coordinates=280,610,47,51
 
 [txt_nome]
-Coordinates=930,530,67,58
+Coordinates=1010,40,60,51
 
 [Label4]
-Coordinates=10,490,53,58
+Coordinates=10,490,46,51
 
 [Label2]
-Coordinates=10,366,53,58
+Coordinates=10,366,46,51
 
 [txt_n]
-Coordinates=540,410,42,58
+Coordinates=880,260,40,51
 
 [Label6]
-Coordinates=20,560,53,58
+Coordinates=20,560,46,51
 
 [Label1]
-Coordinates=90,350,53,58
+Coordinates=90,350,46,51
 
 [Label8]
-Coordinates=10,110,53,58
+Coordinates=10,110,46,51
 
 [Clientes.DataSource1]
-Coordinates=74,154,140,36
+Coordinates=74,154,120,33
 
 [Label9]
-Coordinates=10,420,53,58
+Coordinates=10,420,46,51
 
 [Panel2]
-Coordinates=220,610,55,58
+Coordinates=220,610,47,51
 
 [Label7]
-Coordinates=10,250,53,58
+Coordinates=10,250,46,51
 
 [Principal.BindSourceclientes]
-Coordinates=670,390,178,278
+Coordinates=500,50,156,231
 
 [btn_novo]
-Coordinates=210,210,67,58
+Coordinates=210,210,60,51
 Visible=True
 
 [txt_qtde]
-Coordinates=1030,150,60,58
+Coordinates=1030,150,54,51
 
 [txt_vlr]
-Coordinates=1030,340,49,58
+Coordinates=1030,240,45,51
 
 [txt_qr]
-Coordinates=710,0,47,58
+Coordinates=710,0,42,51
 
 [btn_editar]
-Coordinates=300,280,72,58
+Coordinates=300,280,64,51
 
 [txt_dtEntrega]
-Coordinates=700,290,91,58
+Coordinates=700,140,80,51
 
 [btn_filtro]
-Coordinates=330,80,64,58
+Coordinates=330,80,58,51
 
 [cb_entregue]
-Coordinates=680,180,114,58
+Coordinates=1110,20,95,51
 
 [btn_cancelar]
-Coordinates=300,350,88,58
+Coordinates=300,350,77,51
 
 [txt_filtro]
-Coordinates=400,80,60,58
+Coordinates=400,80,55,51
 
 [Label11]
-Coordinates=70,420,60,58
+Coordinates=70,420,52,51
 
 [btn_salvar]
-Coordinates=300,210,74,58
+Coordinates=300,210,65,51
 
 [Label10]
-Coordinates=80,490,60,58
+Coordinates=80,490,52,51
 
 [btn_excluir]
-Coordinates=310,420,77,58
+Coordinates=310,420,69,51
 
 [Panel3]
-Coordinates=220,550,55,58
+Coordinates=220,550,47,51
 
 [DBGrid1]
-Coordinates=190,20,64,36
+Coordinates=190,20,56,33
 
 [FD_Con_PCP]
-Coordinates=0,0,95,36
+Coordinates=0,0,80,33
 
 [BindSourcepcp]
-Coordinates=870,20,102,212
+Coordinates=870,20,90,213
 
 [FDTablepcp]
-Coordinates=125,1,84,36
+Coordinates=125,1,73,33
 Visible=False
 
 [BindingsList1]
-Coordinates=536,87,91,36
+Coordinates=536,87,82,33
 
 [FDStoredProc1]
-Coordinates=172,75,103,58
+Coordinates=172,75,89,51
 
 [DataSource1]
-Coordinates=73,87,89,36
+Coordinates=73,87,77,33
 
 [FDTablepcpqtde]
-Coordinates=313,1,109,36
-
-[FDTablepcpvalor]
-Coordinates=313,157,112,36
+Coordinates=313,1,95,33
 
 [FDTablepcpid_produto]
-Coordinates=460,1,145,36
+Coordinates=460,1,127,33
 
 [FDTablepcpdescricao]
-Coordinates=460,157,140,36
+Coordinates=460,157,121,33
 
 [FDTablepcpdt_entrega_final]
-Coordinates=498,212,177,36
+Coordinates=498,212,152,33
 
 [FDTablepcpcliente]
-Coordinates=291,491,122,36
+Coordinates=291,491,105,33
+
+[]
+Coordinates=191,284,100,33
+
+[txt_descr]
+Coordinates=710,60,60,51
+
+[FDTablepcpvalor]
+Coordinates=299,150,97,33
+
+[FDTablepcpData]
+Coordinates=201,320,95,33
+
+[FDTablepcpid_pedido]
+Coordinates=493,53,121,33
 

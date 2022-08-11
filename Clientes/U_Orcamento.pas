@@ -12,7 +12,7 @@ uses
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
   System.Rtti, System.Bindings.Outputs, Vcl.Bind.Editors, Data.Bind.EngExt,
   Vcl.Bind.DBEngExt, Data.Bind.Components, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Data.Bind.DBScope;
+  FireDAC.Comp.Client, Data.Bind.DBScope, Datasnap.Provider;
 
 type
   TCad_Orcamento = class(TForm)
@@ -31,7 +31,7 @@ type
     txt_qr: TEdit;
     txt_qtde: TEdit;
     txt_nome: TEdit;
-    txt_end: TEdit;
+    txt_descr: TEdit;
     Label9: TLabel;
     txt_vlr: TEdit;
     btn_novo: TButton;
@@ -53,12 +53,8 @@ type
     BindingsList1: TBindingsList;
     LinkControlToField1: TLinkControlToField;
     LinkControlToField2: TLinkControlToField;
-    LinkControlToField3: TLinkControlToField;
     LinkControlToField4: TLinkControlToField;
-    LinkControlToField5: TLinkControlToField;
     LinkControlToField6: TLinkControlToField;
-    LinkControlToField7: TLinkControlToField;
-    LinkControlToField8: TLinkControlToField;
     FDStoredProc1: TFDStoredProc;
     DataSource1: TDataSource;
     FDTablepcpid_produto: TFDAutoIncField;
@@ -67,13 +63,27 @@ type
     FDTablepcpdescricao: TWideStringField;
     FDTablepcpdt_entrega_final: TWideStringField;
     FDTablepcpvalor: TWideStringField;
+    LinkControlToField3: TLinkControlToField;
+    LinkControlToField8: TLinkControlToField;
+    FDTablepcpData: TWideStringField;
+    FDTablepcpid_pedido: TSmallintField;
+    LinkControlToField5: TLinkControlToField;
+    LinkControlToField7: TLinkControlToField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FDTablepcpBeforePost(DataSet: TDataSet);
+    procedure btn_novoClick(Sender: TObject);
+    procedure btn_editarClick(Sender: TObject);
+    procedure btn_cancelarClick(Sender: TObject);
+    procedure btn_excluirClick(Sender: TObject);
+    procedure FDTablepcpBeforeCancel(DataSet: TDataSet);
+    procedure FDTablepcpBeforeDelete(DataSet: TDataSet);
 
   private
-    { Private declarations }
+
   public
-    { Public declarations }
+    procedure Limpar;
+     procedure Desbloqueia;
+     Procedure Bloqueia;
   end;
 
 var
@@ -86,9 +96,76 @@ implementation
 uses U_Clientes, U_Cadastro;
 
 
+procedure TCad_Orcamento.Bloqueia;
+begin
+txt_data.Enabled := false;
+txt_n.Enabled := false;
+txt_qr.Enabled := false;
+txt_nome.Enabled := false;
+txt_vlr.Enabled := false;
+end;
+
+procedure TCad_Orcamento.btn_cancelarClick(Sender: TObject);
+begin
+FDTablepcp.Cancel;
+end;
+
+procedure TCad_Orcamento.btn_editarClick(Sender: TObject);
+begin
+FDTablepcp.Edit;
+end;
+
+procedure TCad_Orcamento.btn_excluirClick(Sender: TObject);
+begin
+FDTablepcp.Delete;
+Limpar;
+Bloqueia;
+end;
+
+procedure TCad_Orcamento.btn_novoClick(Sender: TObject);
+begin
+Limpar; //Procedure
+FDTablepcp.Insert;
+Desbloqueia;
+
+end;
+
+procedure TCad_Orcamento.Desbloqueia;
+begin
+txt_data.Enabled := True;
+txt_n.Enabled := True;
+txt_qr.Enabled := True;
+txt_nome.Enabled := True;
+txt_vlr.Enabled := True;
+txt_qtde.Enabled := True;
+txt_descr.Enabled := True;
+
+end;
+
+procedure TCad_Orcamento.FDTablepcpBeforeCancel(DataSet: TDataSet);
+begin
+Bloqueia;
+end;
+
+procedure TCad_Orcamento.FDTablepcpBeforeDelete(DataSet: TDataSet);
+begin
+Limpar;
+Bloqueia;
+end;
+
+
 procedure TCad_Orcamento.FDTablepcpBeforePost(DataSet: TDataSet);
 begin
-FDTablepcp.FieldByName('data').value := txt_data.text;
+FDTablepcp.FieldByName('Data').value := txt_data.text;
+FDTablepcp.FieldByName('id_pedido').value := txt_n.text;
+//FDTablepcp.FieldByName('id_produto').value := txt_qr.text;
+FDTablepcp.FieldByName('cliente').value :=txt_nome.text;
+FDTablepcp.FieldByName('descricao').value :=txt_descr.text;
+FDTablepcp.FieldByName('qtde').value := txt_qtde.text;
+FDTablepcp.FieldByName('valor').value := txt_vlr.text;
+//FDTablepcp.FieldByName('check_entrega').value := cb_entregue.checked = True
+FDTablepcp.FieldByName('dt_entrega_final').value := txt_dtEntrega.text;
+
 
 end;
 
@@ -99,4 +176,18 @@ Principal := TPrincipal.Create(self);
 Principal.ShowModal;
 end;
 
+procedure TCad_Orcamento.Limpar;
+begin
+cb_entregue.checked := False;
+txt_data.Text := '';
+txt_n.text := '';
+txt_qr.text := '';
+txt_nome.text := '';
+txt_vlr.text := '';
+txt_qtde.text := '';
+txt_descr.text := '';
+
+end;
 end.
+
+
