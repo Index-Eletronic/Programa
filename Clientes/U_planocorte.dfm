@@ -427,8 +427,8 @@ object frm_Plano: Tfrm_Plano
       Text = '100010'
     end
     object btn_Mat: TButton
-      Left = 640
-      Top = 46
+      Left = 630
+      Top = 48
       Width = 144
       Height = 51
       Cursor = crHandPoint
@@ -441,6 +441,7 @@ object frm_Plano: Tfrm_Plano
       ParentFont = False
       TabOrder = 8
       WordWrap = True
+      OnClick = btn_MatClick
     end
     object CB_Qr: TComboBox
       Left = 99
@@ -678,6 +679,7 @@ object frm_Plano: Tfrm_Plano
   end
   object FDTabletuonmarcenaria_precos: TFDTable
     Active = True
+    BeforePost = FDTabletuonmarcenaria_precosBeforePost
     IndexFieldNames = 'id_tab'
     Connection = FDCon_precos
     TableName = 'tuonmarcenaria.precos'
@@ -773,7 +775,7 @@ object frm_Plano: Tfrm_Plano
     DataSet = FDT_planocorte
     ScopeMappings = <>
     Left = 32
-    Top = 408
+    Top = 416
   end
   object FDT_planocorte: TFDTable
     Active = True

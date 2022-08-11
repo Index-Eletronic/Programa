@@ -1,0 +1,45 @@
+unit U_CadMateriais;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Data.DB,
+  Vcl.Grids, Vcl.DBGrids;
+
+type
+  Tfrm_CadMateriais = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Panel3: TPanel;
+    Label3: TLabel;
+    Label5: TLabel;
+    Label9: TLabel;
+    txt_qtde: TEdit;
+    btn_novo: TButton;
+    btn_salvar: TButton;
+    btn_editar: TButton;
+    btn_excluir: TButton;
+    txt_cod_mat: TEdit;
+    Label2: TLabel;
+    DBGrid1: TDBGrid;
+    btn_filtar: TButton;
+    CB_Pesq: TComboBox;
+    txt_Pesq: TEdit;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label4: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_CadMateriais: Tfrm_CadMateriais;
+
+implementation
+
+{$R *.dfm}
+
+end.

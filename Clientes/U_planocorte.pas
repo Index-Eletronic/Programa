@@ -73,6 +73,8 @@ type
     procedure txt_qtdeChange(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btn_filtarClick(Sender: TObject);
+    procedure btn_MatClick(Sender: TObject);
+    procedure FDTabletuonmarcenaria_precosBeforePost(DataSet: TDataSet);
 
     private
     procedure Desbloqueia;
@@ -90,7 +92,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_Clientes, U_Orcamento, U_Projetos, U_Cadastro;
+uses U_Clientes, U_Orcamento, U_Projetos, U_Cadastro, U_CadMateriais;
 
 procedure Tfrm_Plano.Bloqueia;
 begin
@@ -129,6 +131,13 @@ begin
   end;
 end;
 
+procedure Tfrm_Plano.btn_MatClick(Sender: TObject);
+begin
+frm_Plano.Hide;
+frm_CadMateriais := Tfrm_CadMateriais.Create(self);
+frm_CadMateriais.ShowModal;
+end;
+
 procedure Tfrm_Plano.btn_novoClick(Sender: TObject);
 begin
 FDT_planocorte.Insert;
@@ -165,6 +174,14 @@ begin
 
 end;
 
+procedure Tfrm_Plano.FDTabletuonmarcenaria_precosBeforePost(DataSet: TDataSet);
+begin
+FDTabletuonmarcenaria_precos.FieldByName('id_mat').Value := frm_CadMateriais.txt_cod_mat.text;
+FDTabletuonmarcenaria_precos.FieldByName('descricao').Value := frm_CadMateriais.txt_desc.text;
+FDTabletuonmarcenaria_precos.FieldByName('valor').Value := frm_CadMateriais.txt_vlr.text;
+FDTabletuonmarcenaria_precos.FieldByName('unidade').Value := frm_CadMateriais.txt_uni.text;
+end;
+
 procedure Tfrm_Plano.FDT_planocorteBeforeEdit(DataSet: TDataSet);
 begin
 Desbloqueia;
@@ -198,9 +215,14 @@ begin
 FDT_planocorte.Close;
 FD_PlanoCorte.Close;
 
-
 FDTabletuonmarcenaria_precos.Close;
 FDCon_precos.Close;
+
+Principal.FDConnection1.Close;
+Principal.FDTableclientes.Close;
+
+Cad_Orcamento.FD_Con_PCP.Close;
+Cad_Orcamento.FDTablepcp.Close;
 
 frm_Plano.hide;
 Principal := TPrincipal.Create(self);

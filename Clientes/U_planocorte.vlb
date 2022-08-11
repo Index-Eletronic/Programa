@@ -9,7 +9,7 @@ Coordinates=140,560,46,51
 Coordinates=110,310,46,51
 
 [Principal.BindSourceclientes]
-Coordinates=260,60,156,231
+Coordinates=650,280,156,231
 
 [Label1]
 Coordinates=36,558,46,51
@@ -48,7 +48,7 @@ Visible=False
 Coordinates=166,260,155,33
 
 [Cad_Orcamento.BindSourcepcp]
-Coordinates=1070,590,172,231
+Coordinates=1000,590,172,231
 
 [Cad_Orcamento.FDStoredProc1]
 Coordinates=650,550,171,51
@@ -142,5 +142,8 @@ Coordinates=454,53,52,51
 Coordinates=101,100,53,51
 
 [txt_Pesq]
-Coordinates=130,750,40,51
+Coordinates=130,750,57,51
+
+[CB_Pesq]
+Coordinates=394,310,84,105
 
