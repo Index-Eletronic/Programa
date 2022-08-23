@@ -61,9 +61,9 @@ type
     LinkControlToField4: TLinkControlToField;
     lbl_total: TLabel;
     Label10: TLabel;
-    LinkFillControlToField3: TLinkFillControlToField;
     LinkListControlToField1: TLinkListControlToField;
     CB_Pesq: TComboBox;
+    LinkListControlToField2: TLinkListControlToField;
     procedure FDT_planocorteBeforePost(DataSet: TDataSet);
     procedure btn_salvarClick(Sender: TObject);
     procedure btn_novoClick(Sender: TObject);
@@ -75,6 +75,7 @@ type
     procedure btn_filtarClick(Sender: TObject);
     procedure btn_MatClick(Sender: TObject);
     procedure FDTabletuonmarcenaria_precosBeforePost(DataSet: TDataSet);
+    procedure FormCreate(Sender: TObject);
 
     private
     procedure Desbloqueia;
@@ -111,6 +112,12 @@ end;
 
 procedure Tfrm_Plano.btn_filtarClick(Sender: TObject);
 begin
+FDT_planocorte.Active:=True;
+FD_PlanoCorte.Connected := True;
+
+FDTabletuonmarcenaria_precos.Active := true;
+FDCon_precos.Connected := True;
+
   with FDT_planocorte do
   begin
     if CB_Pesq.Text = 'QR'then //(CB_Pesq.Text ='COD')or (CB_Pesq.Text ='MATERIAL')
@@ -140,6 +147,12 @@ end;
 
 procedure Tfrm_Plano.btn_novoClick(Sender: TObject);
 begin
+FDT_planocorte.Active:=True;
+FD_PlanoCorte.Connected := True;
+
+FDTabletuonmarcenaria_precos.Active := true;
+FDCon_precos.Connected := True;
+
 FDT_planocorte.Insert;
 Desbloqueia;
 Limpar;
@@ -148,6 +161,12 @@ end;
 procedure Tfrm_Plano.btn_salvarClick(Sender: TObject);
 
 begin
+FDT_planocorte.Active:=True;
+FD_PlanoCorte.Connected := True;
+
+FDTabletuonmarcenaria_precos.Active := true;
+FDCon_precos.Connected := True;
+
 FDT_planocorte.Post;
 Limpar;
 txt_qtde.SetFocus;
@@ -176,6 +195,11 @@ end;
 
 procedure Tfrm_Plano.FDTabletuonmarcenaria_precosBeforePost(DataSet: TDataSet);
 begin
+FDT_planocorte.Active:=True;
+FD_PlanoCorte.Connected := True;
+
+FDTabletuonmarcenaria_precos.Active := true;
+FDCon_precos.Connected := True;
 FDTabletuonmarcenaria_precos.FieldByName('id_mat').Value := frm_CadMateriais.txt_cod_mat.text;
 FDTabletuonmarcenaria_precos.FieldByName('descricao').Value := frm_CadMateriais.txt_desc.text;
 FDTabletuonmarcenaria_precos.FieldByName('valor').Value := frm_CadMateriais.txt_vlr.text;
@@ -191,6 +215,12 @@ end;
 
 procedure Tfrm_Plano.FDT_planocorteBeforePost(DataSet: TDataSet);
 begin
+FDT_planocorte.Active:=True;
+FD_PlanoCorte.Connected := True;
+
+FDTabletuonmarcenaria_precos.Active := true;
+FDCon_precos.Connected := True;
+
 FDT_planocorte.FieldByName('id_mat').Value := txt_cod_mat.TExt;
 FDT_planocorte.FieldByName('qr').Value := CB_Qr.text;
 FDT_planocorte.FieldByName('qtde').Value := txt_qtde.Text;
@@ -211,7 +241,7 @@ end;
 
 procedure Tfrm_Plano.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-
+{
 FDT_planocorte.Close;
 FD_PlanoCorte.Close;
 
@@ -222,11 +252,20 @@ Principal.FDConnection1.Close;
 Principal.FDTableclientes.Close;
 
 Cad_Orcamento.FD_Con_PCP.Close;
-Cad_Orcamento.FDTablepcp.Close;
+Cad_Orcamento.FDTablepcp.Close;}
 
 frm_Plano.hide;
 Principal := TPrincipal.Create(self);
 Principal.ShowModal;
+end;
+
+procedure Tfrm_Plano.FormCreate(Sender: TObject);
+begin
+FDT_planocorte.Active:=True;
+FD_PlanoCorte.Connected := True;
+
+FDTabletuonmarcenaria_precos.Active := true;
+FDCon_precos.Connected := True;
 end;
 
 procedure Tfrm_Plano.Limpar;

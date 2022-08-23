@@ -44,9 +44,6 @@ Coordinates=325,186,132,51
 [Clientes.DataSource1]
 Coordinates=54,176,120,33
 
-[lbl_conexao]
-Coordinates=65,78,73,51
-
 [Panel1]
 Coordinates=214,215,47,51
 
@@ -86,7 +83,49 @@ Visible=False
 
 [frm_Plano.FDTabletuonmarcenaria_precos]
 Visible=False
+Coordinates=609,53,224,33
 
 [frm_Plano.FDT_planocorte]
+Visible=False
+Coordinates=609,1,145,33
+
+[frm_Plano.DataSource1]
+Coordinates=0,0,130,33
+
+[Produo1]
+Coordinates=123,196,56,33
+
+[btn_programacao]
+Coordinates=14,196,101,33
+
+[frm_Plano.BindSourcetuonmarcenaria_planocorte]
+Coordinates=310,1,261,195
+
+[Produo2]
+Coordinates=251,359,56,33
+
+[PENDECIAS1]
+Coordinates=162,359,80,33
+
+[Projetos]
+Coordinates=103,359,55,33
+
+[frm_Plano.BindSourcetuonmarcenaria_precos]
+Coordinates=310,215,242,159
+
+[Label2]
+Coordinates=54,359,46,51
+Visible=True
+
+[Clientes.FDTabletuonmarcenaria_clientes]
+Visible=False
+
+[frm_Apont.FDTabletuonmarcenaria_apont]
+Visible=False
+
+[frm_Apont.FDTabletuonmarcenaria_usuarios]
+Visible=False
+
+[frm_Apont.Query_usuarios]
 Visible=False
 

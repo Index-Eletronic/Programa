@@ -13,6 +13,7 @@ object Clientes: TClientes
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnActivate = FormActivate
   OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
@@ -55,6 +56,7 @@ object Clientes: TClientes
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    ExplicitLeft = -8
     object Label1: TLabel
       Left = 328
       Top = 16
@@ -172,7 +174,7 @@ object Clientes: TClientes
       MaxLength = 10
       ParentFont = False
       TabOrder = 0
-      Text = '13/01/2022'
+      Text = '06/05/2022'
     end
     object txt_n: TEdit
       Left = 268
@@ -189,7 +191,7 @@ object Clientes: TClientes
       NumbersOnly = True
       ParentFont = False
       TabOrder = 1
-      Text = '265'
+      Text = '82'
     end
     object txt_rev: TEdit
       Left = 456
@@ -207,7 +209,7 @@ object Clientes: TClientes
       NumbersOnly = True
       ParentFont = False
       TabOrder = 2
-      Text = '3'
+      Text = '0'
     end
     object txt_tot: TEdit
       Left = 717
@@ -225,13 +227,14 @@ object Clientes: TClientes
       NumbersOnly = True
       ParentFont = False
       TabOrder = 3
-      Text = '624340'
+      Text = '38440'
     end
     object txt_nome: TEdit
       Left = 73
       Top = 76
       Width = 554
       Height = 26
+      CharCase = ecUpperCase
       Enabled = False
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -240,13 +243,14 @@ object Clientes: TClientes
       Font.Style = []
       ParentFont = False
       TabOrder = 4
-      Text = 'SARA E JOAO'
+      Text = 'LAERCIO CASARIN'
     end
     object txt_end: TEdit
       Left = 118
       Top = 129
       Width = 787
       Height = 26
+      CharCase = ecUpperCase
       Enabled = False
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -255,7 +259,7 @@ object Clientes: TClientes
       Font.Style = []
       ParentFont = False
       TabOrder = 5
-      Text = 'CAMPO BELO'
+      Text = 'COD. CHAMONIX'
     end
   end
   object DBGrid1: TDBGrid
@@ -264,7 +268,13 @@ object Clientes: TClientes
     Width = 936
     Height = 393
     DataSource = DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
     Options = [dgEditing, dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -283,6 +293,7 @@ object Clientes: TClientes
         Title.Font.Height = -11
         Title.Font.Name = 'Tahoma'
         Title.Font.Style = [fsBold]
+        Width = 50
         Visible = True
       end
       item
@@ -296,7 +307,7 @@ object Clientes: TClientes
         Title.Font.Height = -11
         Title.Font.Name = 'Tahoma'
         Title.Font.Style = [fsBold]
-        Width = 25
+        Width = 30
         Visible = True
       end
       item
@@ -420,8 +431,8 @@ object Clientes: TClientes
     OnClick = btn_excluirClick
   end
   object btn_pdf: TButton
-    Left = 824
-    Top = 337
+    Left = 831
+    Top = 303
     Width = 105
     Height = 81
     Cursor = crHandPoint
@@ -464,19 +475,19 @@ object Clientes: TClientes
   end
   object FDStoredProc1: TFDStoredProc
     Connection = Principal.FDConnection1
-    Left = 824
-    Top = 8
+    Left = 784
+    Top = 16
   end
   object DataSource1: TDataSource
     DataSet = Principal.FDTableclientes
-    Left = 744
-    Top = 8
+    Left = 712
+    Top = 16
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 892
-    Top = 5
+    Left = 852
+    Top = 13
     object LinkControlToField1: TLinkControlToField
       Category = 'Quick Bindings'
       DataSource = Principal.BindSourceclientes
@@ -518,6 +529,86 @@ object Clientes: TClientes
       FieldName = 'endereco'
       Control = txt_end
       Track = True
+    end
+  end
+  object FDCon_Orc_php: TFDConnection
+    Params.Strings = (
+      'Database=tuonmarcenaria'
+      'User_Name=tuonmarcenaria'
+      'Password=Lica126x'
+      'Server=xmysql.tuonmarcenaria.com.br'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 32
+    Top = 16
+  end
+  object Driver: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\Acer\Desktop\Programa\Clientes\Win32\Debug\lib\libmysql' +
+      '.dll'
+    Left = 96
+    Top = 16
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = FDTabletuonmarcenaria_clientes
+    ScopeMappings = <>
+    Left = 280
+    Top = 16
+  end
+  object FDTabletuonmarcenaria_clientes: TFDTable
+    Active = True
+    BeforePost = FDTabletuonmarcenaria_clientesBeforePost
+    IndexFieldNames = 'id'
+    Connection = FDCon_Orc_php
+    TableName = 'tuonmarcenaria.clientes'
+    Left = 168
+    Top = 16
+    object FDTabletuonmarcenaria_clientesid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object FDTabletuonmarcenaria_clientesnome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Required = True
+      FixedChar = True
+      Size = 50
+    end
+    object FDTabletuonmarcenaria_clientesdata: TStringField
+      FieldName = 'data'
+      Origin = 'data'
+      Required = True
+      FixedChar = True
+      Size = 11
+    end
+    object FDTabletuonmarcenaria_clientesid_pedido: TStringField
+      FieldName = 'id_pedido'
+      Origin = 'id_pedido'
+      Required = True
+      FixedChar = True
+      Size = 11
+    end
+    object FDTabletuonmarcenaria_clientesendereco: TStringField
+      FieldName = 'endereco'
+      Origin = 'endereco'
+      Required = True
+      FixedChar = True
+      Size = 100
+    end
+    object FDTabletuonmarcenaria_clientesrev: TStringField
+      FieldName = 'rev'
+      Origin = 'rev'
+      Required = True
+      FixedChar = True
+      Size = 11
+    end
+    object FDTabletuonmarcenaria_clientesvalor: TStringField
+      FieldName = 'valor'
+      Origin = 'valor'
+      Required = True
+      FixedChar = True
+      Size = 11
     end
   end
 end

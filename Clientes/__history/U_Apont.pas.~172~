@@ -1,0 +1,311 @@
+unit U_Apont;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.StdCtrls, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
+  IdDayTime, DateUtils, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
+  Data.DB, FireDAC.Comp.Client, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  System.Rtti, System.Bindings.Outputs, Vcl.Bind.Editors, Data.Bind.EngExt,
+  Vcl.Bind.DBEngExt, Data.Bind.Components, FireDAC.Comp.DataSet,
+  Data.Bind.DBScope;
+
+type
+  Tfrm_Apont = class(TForm)
+    Image1: TImage;
+    btn_lançar: TButton;
+    btn_finalizar: TButton;
+    Panel_Dados: TPanel;
+    Label4: TLabel;
+    Label1: TLabel;
+    lbl_hora_ini: TLabel;
+    Label3: TLabel;
+    lbl_usuario: TLabel;
+    CB_Qr: TComboBox;
+    txt_usuario: TEdit;
+    txt_dt_Inicial: TEdit;
+    lbl_Data_Final: TLabel;
+    Label2: TLabel;
+    FD_Apont: TFDConnection;
+    BindingsList1: TBindingsList;
+    FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
+    BindSourcetuonmarcenaria_apont: TBindSourceDB;
+    FDTabletuonmarcenaria_apont: TFDTable;
+    FD_usuario: TFDConnection;
+    BindSourcetuonmarcenaria_usuarios: TBindSourceDB;
+    FDTabletuonmarcenaria_usuarios: TFDTable;
+    btn_novo: TButton;
+    Query_usuarios: TFDQuery;
+    BindSourceDB1: TBindSourceDB;
+    Query_usuariosid: TFDAutoIncField;
+    Query_usuariosnome: TStringField;
+    Query_usuariosid_user: TStringField;
+    lbl_data_inicial: TLabel;
+    Query_Apont: TFDQuery;
+    LinkFillControlToField: TLinkFillControlToField;
+    Query_Projeto: TFDQuery;
+    FD_Projeto: TFDConnection;
+    FDPhysMySQLDriverLink2: TFDPhysMySQLDriverLink;
+    BindSourcetuonmarcenaria_projeto: TBindSourceDB;
+    FDTabletuonmarcenaria_projeto: TFDTable;
+    procedure FDTabletuonmarcenaria_apontBeforePost(DataSet: TDataSet);
+    procedure btn_lançarClick(Sender: TObject);
+    procedure btn_novoClick(Sender: TObject);
+    procedure txt_dt_InicialExit(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure txt_usuarioExit(Sender: TObject);
+    procedure txt_usuarioEnter(Sender: TObject);
+    procedure txt_dt_InicialClick(Sender: TObject);
+    procedure btn_finalizarClick(Sender: TObject);
+    procedure txt_dt_InicialEnter(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+  private
+    procedure Limpar;
+    procedure Bloquear;
+    procedure Con_Open;
+    Procedure CarregarCombobox;
+    procedure ChecarData;
+    procedure AssociarCampos;
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_Apont: Tfrm_Apont;
+
+implementation
+
+{$R *.dfm}
+
+uses U_Projetos, U_planocorte;
+
+
+procedure Tfrm_Apont.AssociarCampos;
+begin
+Con_Open;
+Query_Apont.Active := True;
+Query_usuarios.Active := True;
+FDTabletuonmarcenaria_apont.Active := True;
+FDTabletuonmarcenaria_apont.FieldByName('qr').value := CB_Qr.Text;
+FDTabletuonmarcenaria_apont.FieldByName('data').value := txt_dt_Inicial.Text;
+FDTabletuonmarcenaria_apont.FieldByName('hora').value := lbl_hora_ini.Caption;
+FDTabletuonmarcenaria_apont.FieldByName('usuario').value := txt_usuario.text;
+FDTabletuonmarcenaria_apont.FieldByName('data_final').value := txt_dt_Inicial.Text;
+FDTabletuonmarcenaria_apont.FieldByName('nome').value := lbl_usuario.Caption;
+end;
+
+procedure Tfrm_Apont.Bloquear;
+begin
+CB_Qr.Enabled := True;
+txt_dt_Inicial.Enabled := False;
+
+end;
+
+procedure Tfrm_Apont.btn_finalizarClick(Sender: TObject);
+
+begin
+Query_Apont.Active := True;
+Query_usuarios.Active := True;
+AssociarCampos;
+// EDITAR A QUERY CONFORME O SELECT
+    Query_Apont.Close;
+    Query_Apont.Sql.Clear;
+    Query_Apont.Sql.Add('UPDATE apont set data_final = :data where qr = :qr');
+    Query_Apont.ParamByName('data').Value := txt_dt_Inicial.text;
+    Query_Apont.ParamByName('qr').Value := strtoint(CB_Qr.Text);
+    Query_Apont.ExecSQL;
+    ShowMessage('QR FINALIZADO');
+    Query_Apont.Close;
+Limpar;
+Bloquear;
+txt_usuario.SetFocus;
+end;
+
+procedure Tfrm_Apont.btn_lançarClick(Sender: TObject);
+begin
+Con_Open;
+  Query_Apont.Active := True;
+  Query_usuarios.Active := True;
+
+  FDTabletuonmarcenaria_apont.Post;
+  ShowMessage('Dados Salvos com Sucesso');
+Limpar;
+Bloquear;
+end;
+
+procedure Tfrm_Apont.btn_novoClick(Sender: TObject);
+begin
+Con_Open;
+Query_Apont.Active := True;
+Query_usuarios.Active := True;
+
+
+txt_usuario.Enabled := True;
+
+
+btn_lançar.Enabled := True;
+btn_finalizar.Enabled := True;
+FDTabletuonmarcenaria_apont.Insert;
+Limpar;
+txt_usuario.SetFocus;
+
+end;
+
+procedure Tfrm_Apont.CarregarCombobox;
+begin
+if not Query_Projeto.IsEmpty then
+Begin
+FD_Projeto.Connected := True;
+FDTabletuonmarcenaria_projeto.Active := true;
+
+Query_Projeto.Open;
+  while not Query_Projeto.Eof do // Enquanto tiver dados da tabela
+  Begin
+    CB_Qr.Items.Add(Query_Projeto.FieldByName('qr').AsString);
+    Query_Projeto.Next;
+  End;
+  CB_Qr.ItemIndex := 0;
+End;
+
+end;
+
+procedure Tfrm_Apont.ChecarData;
+var data : TDate;
+begin
+Query_Apont.Active := True;
+Query_usuarios.Active := True;
+// Verifica a datas cadastradas no apontamento
+Query_Apont.Close;
+Query_Apont.Sql.Clear;
+Query_Apont.Sql.Add('SELECT * from apont where qr = ' + CB_Qr.Text);
+Query_Apont.Open;
+
+
+//Verifica a data inicial
+if not Query_Apont.IsEmpty then // Se a query  nao for vazia
+Begin
+  lbl_data_inicial.Caption := Query_Apont['data'];
+End
+else
+begin
+  lbl_data_inicial.Caption := 'DATA INICIAL';
+end;
+
+data := 1899-12-30;
+
+if Query_Apont['data_final'] <> data then
+begin
+    lbl_data_final.Caption := Query_Apont['data_final'];
+end
+else
+begin
+    lbl_data_final.Caption := 'DATA FINAL';
+end;
+Query_Apont.Close;
+end;
+
+procedure Tfrm_Apont.Con_Open;
+begin
+FD_Apont.Connected := True;;
+FD_usuario.Connected := True;
+FD_Apont.Connected := True;
+FDTabletuonmarcenaria_apont.Active := True
+end;
+
+procedure Tfrm_Apont.FDTabletuonmarcenaria_apontBeforePost(DataSet: TDataSet);
+begin
+AssociarCampos;
+end;
+
+procedure Tfrm_Apont.FormCreate(Sender: TObject);
+begin
+Query_Apont.Active:= True;
+Query_usuarios.Active := True;
+Con_Open;
+end;
+
+procedure Tfrm_Apont.FormShow(Sender: TObject);
+begin
+//CB_Qr.Enabled := True;
+CarregarCombobox;
+txt_usuario.SetFocus;
+end;
+
+procedure Tfrm_Apont.Limpar;
+begin
+txt_dt_Inicial.text := '';
+txt_usuario.text := '';
+lbl_usuario.Caption := '';
+txt_usuario.SetFocus;
+end;
+
+procedure Tfrm_Apont.txt_dt_InicialClick(Sender: TObject);
+begin
+Query_Apont.Active := True;
+Query_usuarios.Active := True;
+FDTabletuonmarcenaria_apont.Active := True;
+lbl_hora_ini.Caption := (FormatDateTime('t',Now));
+end;
+
+procedure Tfrm_Apont.txt_dt_InicialEnter(Sender: TObject);
+begin
+lbl_hora_ini.Caption := (FormatDateTime('t',Now));
+end;
+
+procedure Tfrm_Apont.txt_dt_InicialExit(Sender: TObject);
+var sUso : string; vUso : TDate;
+begin
+Query_Apont.Active := True;
+Query_usuarios.Active := True;
+FDTabletuonmarcenaria_apont.Active := True;
+   sUso := '';
+   sUso := txt_dt_Inicial.Text;
+      if (sUso[9] = '') AND (sUso[10] = '') then
+      begin
+         vUso := StrToDate(FormatDateTime('dd/MM/yyyy', StrToDate(Copy(sUso,1,6)+'20'+Copy(sUso,7,8))));
+         //showmessage(datetostr(vUso));
+      end;
+
+end;
+
+procedure Tfrm_Apont.txt_usuarioEnter(Sender: TObject);
+begin
+Query_usuarios.Active := True;
+Query_Apont.Active:= True;
+end;
+
+procedure Tfrm_Apont.txt_usuarioExit(Sender: TObject);
+begin
+Query_Apont.Active := True;
+Query_usuarios.Active := True;
+// Verifica se o usuário ja esta cadastrado.
+Query_usuarios.Close;
+Query_usuarios.Sql.Clear;
+Query_usuarios.Sql.Add('SELECT * from usuarios where id = ' + QuotedStr(trim(txt_usuario.text)));
+Query_usuarios.Open;
+
+if not Query_usuarios.IsEmpty then // Se o resultado da Query nao for vazio
+Begin
+  lbl_usuario.Caption := Query_usuarios['nome'];
+End
+else
+begin
+  ShowMessage('USUÁRIO NAO ENCONTRADO');
+  exit;
+end;
+
+CB_Qr.Enabled := True;
+txt_dt_Inicial.Enabled := True;
+CB_Qr.SetFocus;
+
+Query_usuarios.Close;
+
+end;
+
+end.

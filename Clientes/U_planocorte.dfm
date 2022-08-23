@@ -15,6 +15,7 @@ object frm_Plano: Tfrm_Plano
   Position = poDesktopCenter
   OnActivate = FormActivate
   OnClose = FormClose
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Label2: TLabel
@@ -324,7 +325,7 @@ object frm_Plano: Tfrm_Plano
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      Text = '237,00'
+      Text = '285'
     end
     object btn_novo: TButton
       Left = 204
@@ -404,11 +405,12 @@ object frm_Plano: Tfrm_Plano
       ItemIndex = 0
       ParentFont = False
       TabOrder = 6
-      Text = 'DURATEX - MDF BP BRANCO TX 06MM'
+      Text = 'DURATEX - MDF BP BRANCO TX 18MM'
       Items.Strings = (
-        'DURATEX - MDF BP BRANCO TX 06MM'
+        'DURATEX - MDF BP BRANCO TX 18MM'
         'DURATEX - MDF BP BRANCO TX 09MM'
-        'DURATEX - MDF BP BRANCO TX 15MM')
+        'DURATEX - MDF BP BRANCO TX 15MM'
+        'DURATEX - MDF BP BRANCO TX 25MM')
     end
     object txt_cod_mat: TEdit
       Left = 102
@@ -458,180 +460,16 @@ object frm_Plano: Tfrm_Plano
       ItemIndex = 0
       ParentFont = False
       TabOrder = 9
-      Text = '39'
+      Text = '43'
       Items.Strings = (
-        '39'
-        '40'
-        '41'
-        '42'
         '43'
-        '56'
-        '57'
-        '58'
-        '59'
-        '60'
-        '61'
-        '62'
-        '63'
-        '64'
-        '65'
-        '66'
-        '67'
-        '68'
-        '69'
-        '72'
-        '73'
-        '74'
-        '75'
-        '76'
-        '77'
-        '78'
-        '79'
-        '80'
-        '81'
-        '82'
-        '83'
-        '84'
-        '85'
-        '86'
-        '87'
-        '88'
-        '89'
-        '90'
-        '91'
-        '92'
-        '93'
-        '94'
-        '95'
-        '96'
-        '97'
-        '98'
-        '99'
-        '100'
-        '101'
-        '102'
-        '103'
-        '104'
-        '105'
-        '106'
-        '107'
-        '108'
-        '109'
-        '110'
-        '111'
-        '112'
-        '113'
-        '114'
-        '115'
-        '116'
-        '117'
-        '118'
-        '119'
-        '120'
-        '121'
-        '122'
-        '123'
-        '124'
-        '125'
-        '126'
-        '127'
-        '128'
-        '129'
-        '130'
-        '131'
-        '132'
-        '133'
-        '134'
-        '135'
-        '136'
-        '137'
-        '138'
-        '139'
-        '140'
-        '141'
-        '142'
-        '143'
-        '144'
-        '145'
-        '146'
-        '147'
-        '148'
-        '149'
-        '150'
-        '151'
-        '152'
-        '153'
-        '154'
-        '155'
-        '156'
-        '157'
-        '158'
-        '159'
-        '160'
-        '161'
-        '162'
-        '163'
-        '164'
-        '165'
-        '166'
-        '167'
-        '168'
-        '169'
-        '170'
-        '171'
-        '172'
-        '173'
-        '174'
-        '175'
-        '177'
-        '178'
-        '179'
-        '180'
-        '181'
-        '182'
-        '183'
-        '184'
-        '185'
-        '186'
-        '187'
-        '188'
-        '189'
-        '190'
-        '191'
-        '194'
-        '195'
-        '196'
-        '197'
-        '198'
-        '199'
-        '200'
-        '201'
-        '202'
-        '203'
-        '204'
-        '205'
-        '206'
-        '207'
-        '208'
-        '209'
-        '210'
         '212'
-        '213'
-        '214'
-        '215'
-        '216'
-        '217'
-        '218'
-        '219'
-        '220'
-        '221'
-        '222'
-        '223'
-        '224'
-        '226'
-        '227'
-        '228'
-        '229')
+        '39'
+        '39'
+        '39'
+        '39'
+        '39'
+        '39')
     end
   end
   object CB_Pesq: TComboBox
@@ -657,8 +495,8 @@ object frm_Plano: Tfrm_Plano
       'Database=tuonmarcenaria'
       'User_Name=tuonmarcenaria'
       'Password=Lica126x'
-      'DriverID=MySQL'
-      'Server=xmysql.tuonmarcenaria.com.br')
+      'Server=xmysql.tuonmarcenaria.com.br'
+      'DriverID=MySQL')
     Connected = True
     LoginPrompt = False
     Left = 952
@@ -729,24 +567,20 @@ object frm_Plano: Tfrm_Plano
       Control = txt_vlr
       Track = True
     end
-    object LinkFillControlToField3: TLinkFillControlToField
-      Category = 'Quick Bindings'
-      DataSource = Cad_Orcamento.BindSourcepcp
-      FieldName = 'id_produto'
-      Control = CB_Qr
-      Track = True
-      FillDataSource = Cad_Orcamento.BindSourcepcp
-      FillDisplayFieldName = 'id_produto'
-      AutoFill = True
-      FillExpressions = <>
-      FillHeaderExpressions = <>
-      FillBreakGroups = <>
-    end
     object LinkListControlToField1: TLinkListControlToField
       Category = 'Quick Bindings'
       DataSource = BindSourcetuonmarcenaria_precos
       FieldName = 'descricao'
       Control = CB_mat
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField2: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourcetuonmarcenaria_planocorte
+      FieldName = 'qr'
+      Control = CB_Qr
       FillExpressions = <>
       FillHeaderExpressions = <>
       FillBreakGroups = <>

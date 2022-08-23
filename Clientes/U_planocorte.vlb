@@ -1,15 +1,8 @@
-﻿[Principal.FDTableclientes]
-Visible=False
-Coordinates=631,1,139,33
-
-[Label4]
+﻿[Label4]
 Coordinates=140,560,46,51
 
 [Label2]
 Coordinates=110,310,46,51
-
-[Principal.BindSourceclientes]
-Coordinates=650,280,156,231
 
 [Label1]
 Coordinates=36,558,46,51
@@ -66,7 +59,7 @@ Coordinates=185,236,88,33
 Coordinates=990,360,207,195
 
 [CB_Qr]
-Coordinates=1310,600,84,105
+Coordinates=1300,400,84,105
 
 [FDT_planocorte]
 Coordinates=185,150,92,33
@@ -146,4 +139,7 @@ Coordinates=130,750,57,51
 
 [CB_Pesq]
 Coordinates=394,310,84,105
+
+[Principal.FDTableclientes]
+Visible=False
 

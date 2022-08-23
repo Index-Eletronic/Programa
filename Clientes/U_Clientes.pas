@@ -27,7 +27,6 @@ type
     FDConnection1: TFDConnection;
     BindSourceclientes: TBindSourceDB;
     FDTableclientes: TFDTable;
-    lbl_conexao: TLabel;
     Panel1: TPanel;
     ProgramaoSemanal1: TMenuItem;
     Label1: TLabel;
@@ -37,15 +36,28 @@ type
     Produo1: TMenuItem;
     Produo2: TMenuItem;
     btn_programacao: TSpeedButton;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    FDTableclientesid_pedido: TSmallintField;
+    FDTableclientesData: TWideStringField;
+    FDTableclientesnome: TWideStringField;
+    FDTableclientesendereco: TWideStringField;
+    FDTableclientesrev: TWideStringField;
+    FDTableclientesValor: TWideStringField;
+    FDTableclientesaprovado: TWideStringField;
+    FDTableclienteslink: TWideStringField;
+    FDTableclientesuser_id: TWideStringField;
     procedure Arquivo2Click(Sender: TObject);
     procedure Sair4Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormActivate(Sender: TObject);
     procedure PlanodeCortes2Click(Sender: TObject);
     procedure ProjetosClick(Sender: TObject);
     procedure PlanodeCortes1Click(Sender: TObject);
     procedure btn_programacaoClick(Sender: TObject);
     procedure ProgramaoSemanal1Click(Sender: TObject);
+    procedure Produo2Click(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -58,7 +70,8 @@ implementation
 
 {$R *.dfm}
 
-uses U_Cadastro, U_Orcamento,U_Projetos, U_Prog_Semanal, U_planocorte;
+uses U_Cadastro, U_Orcamento,U_Projetos, U_Prog_Semanal, U_planocorte, U_Apont,
+  U_CadMateriais;
 
 procedure TPrincipal.Arquivo2Click(Sender: TObject);
 begin
@@ -73,22 +86,13 @@ frm_programacao := Tfrm_programacao.Create(self);
 frm_programacao.ShowModal;
 end;
 
-procedure TPrincipal.FormActivate(Sender: TObject);
-begin
-if FDConnection1.Connected = True then
-
-    lbl_conexao.Caption := 'BANCO CONECTADO'
-else
-  lbl_conexao.Caption := 'BANCO NÃO CONECTADO'
-end;
 
 procedure TPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-FDConnection1.Close;
-FDTableclientes.Close;
 Clientes.Hide;
 //Principal.Hide;
 end;
+
 
 procedure TPrincipal.PlanodeCortes1Click(Sender: TObject);
 begin
@@ -105,6 +109,12 @@ Cad_Orcamento.ShowModal;
 end;
 
 
+
+procedure TPrincipal.Produo2Click(Sender: TObject);
+begin
+frm_Apont := Tfrm_Apont.Create(self);
+frm_Apont.ShowModal
+end;
 
 procedure TPrincipal.ProgramaoSemanal1Click(Sender: TObject);
 begin

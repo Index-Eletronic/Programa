@@ -44,10 +44,10 @@ type
     procedure btn_novoClick(Sender: TObject);
     procedure btn_editarClick(Sender: TObject);
     procedure btn_excluirClick(Sender: TObject);
-    procedure DS_CAD_MatDataChange(Sender: TObject; Field: TField);
     procedure DBGrid1CellClick(Column: TColumn);
     procedure DBGrid1ColEnter(Sender: TObject);
     procedure DBGrid1ColExit(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     procedure Limpar;
     procedure Desbloqueia;
@@ -141,23 +141,23 @@ txt_vlr.Enabled := True;
 txt_uni.Enabled := True;
 end;
 
-procedure Tfrm_CadMateriais.DS_CAD_MatDataChange(Sender: TObject;
-  Field: TField);
+procedure Tfrm_CadMateriais.FormActivate(Sender: TObject);
 begin
-//DBGrid1.DataSource.DataSet.Last();
+frm_Plano.FDTabletuonmarcenaria_precos.Active := True;
+frm_Plano.FDCon_precos.Connected := True;
 end;
 
 procedure Tfrm_CadMateriais.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-frm_Plano.FDT_planocorte.Close;
+{frm_Plano.FDT_planocorte.Close;
 frm_Plano.FD_PlanoCorte.Close;
 
 Principal.FDTableclientes.Close;
 Principal.FDConnection1.Close;
 
 frm_Plano.FDTabletuonmarcenaria_precos.Close;
-frm_Plano.FDCon_precos.Close;
+frm_Plano.FDCon_precos.Close;}
 
 frm_CadMateriais.Hide;
 frm_Plano := Tfrm_Plano.Create(self);

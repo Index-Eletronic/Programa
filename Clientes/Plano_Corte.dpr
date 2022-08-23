@@ -16,6 +16,5 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TPrincipal, Principal);
-  Application.CreateForm(Tfrm_CadMateriais, frm_CadMateriais);
   Application.Run;
 end.

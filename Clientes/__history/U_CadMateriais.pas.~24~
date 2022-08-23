@@ -1,0 +1,174 @@
+unit U_CadMateriais;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Data.DB,
+  Vcl.Grids, Vcl.DBGrids, System.Rtti, System.Bindings.Outputs,
+  Vcl.Bind.Editors, Data.Bind.EngExt, Vcl.Bind.DBEngExt, Data.Bind.Components,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+
+type
+  Tfrm_CadMateriais = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Panel3: TPanel;
+    Label3: TLabel;
+    Label5: TLabel;
+    Label9: TLabel;
+    txt_uni: TEdit;
+    btn_novo: TButton;
+    btn_salvar: TButton;
+    btn_editar: TButton;
+    btn_excluir: TButton;
+    txt_cod_mat: TEdit;
+    Label2: TLabel;
+    DBGrid1: TDBGrid;
+    btn_filtar: TButton;
+    CB_Pesq: TComboBox;
+    txt_Pesq: TEdit;
+    txt_vlr: TEdit;
+    txt_desc: TEdit;
+    Label4: TLabel;
+    DS_CAD_Mat: TDataSource;
+    BindingsList1: TBindingsList;
+    LinkControlToField1: TLinkControlToField;
+    LinkControlToField2: TLinkControlToField;
+    LinkControlToField3: TLinkControlToField;
+    LinkControlToField4: TLinkControlToField;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btn_salvarClick(Sender: TObject);
+    procedure btn_novoClick(Sender: TObject);
+    procedure btn_editarClick(Sender: TObject);
+    procedure btn_excluirClick(Sender: TObject);
+    procedure DS_CAD_MatDataChange(Sender: TObject; Field: TField);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure DBGrid1ColEnter(Sender: TObject);
+    procedure DBGrid1ColExit(Sender: TObject);
+  private
+    procedure Limpar;
+    procedure Desbloqueia;
+    procedure Bloqueia;
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_CadMateriais: Tfrm_CadMateriais;
+
+implementation
+
+{$R *.dfm}
+
+uses U_Clientes, U_planocorte;
+
+procedure Tfrm_CadMateriais.Bloqueia;
+begin
+txt_cod_mat.Enabled := False;
+txt_desc.Enabled := False;
+txt_vlr.Enabled := False;
+txt_uni.Enabled := False;
+end;
+
+procedure Tfrm_CadMateriais.btn_editarClick(Sender: TObject);
+begin
+Desbloqueia;
+frm_Plano.FDTabletuonmarcenaria_precos.Edit;
+ShowMessage('Dados atualizados com sucesso.');
+end;
+
+procedure Tfrm_CadMateriais.btn_excluirClick(Sender: TObject);
+begin
+Desbloqueia;
+frm_Plano.FDTabletuonmarcenaria_precos.Delete;
+Bloqueia;
+end;
+
+procedure Tfrm_CadMateriais.btn_novoClick(Sender: TObject);
+var Incrementa: Boolean;
+begin
+Desbloqueia;
+frm_Plano.FDTabletuonmarcenaria_precos.Insert;
+txt_cod_mat.text := '100000';
+txt_uni.text := 'UNI';
+
+ end;
+
+procedure Tfrm_CadMateriais.btn_salvarClick(Sender: TObject);
+begin
+frm_Plano.FDTabletuonmarcenaria_precos.Post;
+Limpar;
+txt_cod_mat.SetFocus;
+
+if Application.MessageBox('Deseja adicionar mais?','',MB_ICONQUESTION+MB_YESNO) = mrYes then
+begin
+frm_Plano.FDTabletuonmarcenaria_precos.Insert;
+Desbloqueia;
+Limpar;
+txt_cod_mat.text := '100000';
+txt_uni.text := 'UNI';
+end
+else
+begin
+Bloqueia;
+end;
+
+end;
+
+procedure Tfrm_CadMateriais.DBGrid1CellClick(Column: TColumn);
+begin
+Desbloqueia;
+end;
+
+procedure Tfrm_CadMateriais.DBGrid1ColEnter(Sender: TObject);
+begin
+Desbloqueia;
+end;
+
+procedure Tfrm_CadMateriais.DBGrid1ColExit(Sender: TObject);
+begin
+Bloqueia;
+end;
+
+procedure Tfrm_CadMateriais.Desbloqueia;
+begin
+txt_cod_mat.Enabled := True;
+txt_desc.Enabled := True;
+txt_vlr.Enabled := True;
+txt_uni.Enabled := True;
+end;
+
+procedure Tfrm_CadMateriais.DS_CAD_MatDataChange(Sender: TObject;
+  Field: TField);
+begin
+//DBGrid1.DataSource.DataSet.Last();
+end;
+
+procedure Tfrm_CadMateriais.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+frm_Plano.FDT_planocorte.Close;
+frm_Plano.FD_PlanoCorte.Close;
+
+Principal.FDTableclientes.Close;
+Principal.FDConnection1.Close;
+
+frm_Plano.FDTabletuonmarcenaria_precos.Close;
+frm_Plano.FDCon_precos.Close;
+
+frm_CadMateriais.Hide;
+frm_Plano := Tfrm_Plano.Create(self);
+frm_Plano.ShowModal;
+end;
+
+
+procedure Tfrm_CadMateriais.Limpar;
+begin
+txt_cod_mat.text := '';
+txt_vlr.text := '';
+end;
+
+end.

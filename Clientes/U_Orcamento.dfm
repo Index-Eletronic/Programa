@@ -466,9 +466,7 @@ object Cad_Orcamento: TCad_Orcamento
   end
   object FD_Con_PCP: TFDConnection
     Params.Strings = (
-      
-        'Database=C:\Users\Acer\Desktop\Programa\Clientes\Win32\Debug\Ass' +
-        'ets\BD_Sistema.mdb'
+      'Database=\\Servidor\SRV\PCP\Sistema\servidor.mdb'
       'DriverID=MSAcc')
     Connected = True
     Left = 704
@@ -550,7 +548,7 @@ object Cad_Orcamento: TCad_Orcamento
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 20
+    Left = 116
     Top = 5
     object LinkControlToField1: TLinkControlToField
       Category = 'Quick Bindings'
@@ -608,11 +606,6 @@ object Cad_Orcamento: TCad_Orcamento
       Control = txt_n
       Track = True
     end
-  end
-  object FDStoredProc1: TFDStoredProc
-    Connection = FD_Con_PCP
-    Left = 112
-    Top = 8
   end
   object DataSource1: TDataSource
     DataSet = FDTablepcp

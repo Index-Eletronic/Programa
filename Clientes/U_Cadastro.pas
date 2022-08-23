@@ -12,7 +12,8 @@ uses
   FireDAC.DApt.Intf, FireDAC.DApt, Data.Bind.Controls, System.Rtti,
   System.Bindings.Outputs, Vcl.Bind.Editors, Data.Bind.EngExt,
   Vcl.Bind.DBEngExt, Data.Bind.Components, Vcl.Buttons, Vcl.Bind.Navigator,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Data.Bind.DBScope;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Data.Bind.DBScope,
+  FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef;
 
 type
   TClientes = class(TForm)
@@ -51,6 +52,17 @@ type
     LinkControlToField4: TLinkControlToField;
     LinkControlToField5: TLinkControlToField;
     LinkControlToField6: TLinkControlToField;
+    FDCon_Orc_php: TFDConnection;
+    Driver: TFDPhysMySQLDriverLink;
+    BindSourceDB1: TBindSourceDB;
+    FDTabletuonmarcenaria_clientes: TFDTable;
+    FDTabletuonmarcenaria_clientesid: TFDAutoIncField;
+    FDTabletuonmarcenaria_clientesnome: TStringField;
+    FDTabletuonmarcenaria_clientesdata: TStringField;
+    FDTabletuonmarcenaria_clientesid_pedido: TStringField;
+    FDTabletuonmarcenaria_clientesendereco: TStringField;
+    FDTabletuonmarcenaria_clientesrev: TStringField;
+    FDTabletuonmarcenaria_clientesvalor: TStringField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btn_novoClick(Sender: TObject);
     procedure Tb_clientesBeforePost(DataSet: TDataSet);
@@ -59,6 +71,8 @@ type
     procedure btn_editarClick(Sender: TObject);
     procedure btn_cancelarClick(Sender: TObject);
     procedure btn_excluirClick(Sender: TObject);
+    procedure FDTabletuonmarcenaria_clientesBeforePost(DataSet: TDataSet);
+    procedure FormActivate(Sender: TObject);
 
   private
     procedure Limpar;
@@ -94,6 +108,7 @@ end;
 procedure TClientes.btn_cancelarClick(Sender: TObject);
 begin
 Principal.FDTableclientes.Cancel;
+FDTabletuonmarcenaria_clientes.Cancel;
 Limpar;
 
 end;
@@ -102,23 +117,27 @@ procedure TClientes.btn_editarClick(Sender: TObject);
 begin
   desbloqueia;
  Principal.FDTableclientes.Edit;
+ FDTabletuonmarcenaria_clientes.Edit;
  ShowMessage('ORÇAMENTO EDITADO');
 end;
 
 procedure TClientes.btn_excluirClick(Sender: TObject);
 begin
 Principal.FDTableclientes.Delete;
+FDTabletuonmarcenaria_clientes.Delete;
 end;
 
 procedure TClientes.btn_novoClick(Sender: TObject);
 begin
 Principal.FDTableclientes.Insert; //Nome do componete vinculado a TB do BD.
+FDTabletuonmarcenaria_clientes.Insert;
 desbloqueia;
 end;
 
 procedure TClientes.btn_salvarClick(Sender: TObject);
 begin
 Principal.FDTableclientes.Post;
+FDTabletuonmarcenaria_clientes.Post;
 ShowMessage('ORÇAMENTO CADASTRADO');
 Limpar;
 bloqueia;
@@ -144,8 +163,31 @@ begin
   txt_end.Enabled := true;
 end;
 
+procedure TClientes.FDTabletuonmarcenaria_clientesBeforePost(DataSet: TDataSet);
+begin
+FDTabletuonmarcenaria_clientes.FieldByName('nome').value := (txt_nome.Text);
+FDTabletuonmarcenaria_clientes.FieldByName('data').value := (txt_data.Text);
+FDTabletuonmarcenaria_clientes.FieldByName('id_pedido').value := (txt_n.Text);
+FDTabletuonmarcenaria_clientes.FieldByName('endereco').value := (txt_end.Text);
+FDTabletuonmarcenaria_clientes.FieldByName('rev').value := (txt_rev.Text);
+FDTabletuonmarcenaria_clientes.FieldByName('valor').value := (txt_tot.Text);
+//FDTabletuonmarcenaria_clientes.FieldByName('anexo').value := (.Text);
+end;
+
+procedure TClientes.FormActivate(Sender: TObject);
+begin
+{FDCon_Orc_php.Connected := True;
+FDTabletuonmarcenaria_clientes.Active := True;
+Principal.FDConnection1.Connected := True;
+Principal.FDTableclientes.Active := True;}
+end;
+
 procedure TClientes.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
+{FDCon_Orc_php.Close;
+FDTabletuonmarcenaria_clientes.close;
+Principal.FDConnection1.Close;
+Principal.FDTableclientes.Close;}
 Pg_Principal;
 end;
 

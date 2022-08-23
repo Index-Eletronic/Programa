@@ -55,7 +55,6 @@ type
     LinkControlToField2: TLinkControlToField;
     LinkControlToField4: TLinkControlToField;
     LinkControlToField6: TLinkControlToField;
-    FDStoredProc1: TFDStoredProc;
     DataSource1: TDataSource;
     FDTablepcpid_produto: TFDAutoIncField;
     FDTablepcpcliente: TWideStringField;

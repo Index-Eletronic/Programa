@@ -72,7 +72,8 @@ Coordinates=960,20,56,33
 Coordinates=20,150,46,51
 
 []
-Coordinates=415,297,104,36
+Coordinates=804,150,206,33
+Visible=False
 
 [btn_cancelar]
 Coordinates=320,270,77,51
@@ -96,4 +97,38 @@ Coordinates=241,309,77,33
 
 [BindingsList1]
 Coordinates=558,260,82,33
+
+[FDCon_Orc_php]
+Coordinates=553,359,96,33
+
+[Driver]
+Coordinates=165,150,44,33
+
+[BindSourceDB1]
+Coordinates=640,410,158,213
+
+[FDTabletuonmarcenaria_clientes]
+Coordinates=448,309,176,33
+Visible=False
+
+[FDTabletuonmarcenaria_clientesdata]
+Coordinates=884,280,197,33
+
+[FDTabletuonmarcenaria_clientesvalor]
+Coordinates=884,332,200,33
+
+[FDTabletuonmarcenaria_clientesid_pedido]
+Coordinates=804,384,224,33
+
+[FDTabletuonmarcenaria_clientesid]
+Coordinates=364,387,185,33
+
+[FDTabletuonmarcenaria_clientesrev]
+Coordinates=42,387,191,33
+
+[FDTabletuonmarcenaria_clientesendereco]
+Coordinates=1122,1,222,33
+
+[FDTabletuonmarcenaria_clientesnome]
+Coordinates=1122,53,203,33
 

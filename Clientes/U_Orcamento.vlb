@@ -115,9 +115,6 @@ Visible=False
 [BindingsList1]
 Coordinates=536,87,82,33
 
-[FDStoredProc1]
-Coordinates=172,75,89,51
-
 [DataSource1]
 Coordinates=73,87,77,33
 
@@ -137,7 +134,7 @@ Coordinates=498,212,152,33
 Coordinates=291,491,105,33
 
 []
-Coordinates=191,284,100,33
+Coordinates=172,75,89,51
 
 [txt_descr]
 Coordinates=710,60,60,51
